@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>X TECH · faceless video studio</title>
+    <style>
+        /* ----- RESET + MOBILE FIRST VARIABLES ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-deep: #0a0a0f;
+            --bg-card: #14141f;
+            --bg-surface: #1c1c2a;
+            --primary: #7c4dff;
+            --primary-light: #b184ff;
+            --primary-glow: #b794ff;
+            --accent-mint: #6effe8;
+            --accent-pink: #ff7ac6;
+            --accent-gold: #ffb86b;
+            --text-light: #f2f2f7;
+            --text-dim: #b3b3cc;
+            --text-soft: #c9c9e6;
+            --border-alpha: rgba(124, 77, 255, 0.3);
+            --gradient-brand: linear-gradient(145deg, #7c4dff, #b66aff);
+            --shadow-card: 0 20px 35px -12px #000000cc;
+            --radius-card: 2rem;      /* slightly smaller for mobile, but still round */
+            --radius-btn: 3rem;
+            --transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1);
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-light);
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* container - fluid padding for mobile */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.25rem;  /* 20px on mobile, grows on desktop */
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* ----- TYPOGRAPHY (scales perfectly on mobile) ----- */
+        h1, h2, h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: clamp(2.8rem, 15vw, 6rem);
+            background: linear-gradient(to right, #ffffff, #dbbaff, #a678ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 12px #7c4dff99);
+            animation: softGlow 3s infinite alternate;
+            margin-bottom: 0.25rem;
+        }
+
+        @keyframes softGlow {
+            0% { filter: drop-shadow(0 0 8px #7c4dffb3); }
+            100% { filter: drop-shadow(0 0 22px #b184ff); }
+        }
+
+        h2 {
+            font-size: clamp(2rem, 8vw, 3rem);
+            margin-bottom: 1.75rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e1c6ff 90%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            border-left: 5px solid var(--primary);
+            padding-left: 1rem;
+            transition: transform 0.2s;
+        }
+
+        h2:active {
+            transform: translateX(5px); /* subtle touch feedback */
+        }
+
+        /* ----- BUTTONS (touch friendly, big tap targets) ----- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: rgba(25, 25, 40, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1.5px solid var(--primary);
+            color: white;
+            font-weight: 600;
+            padding: 0.9rem 2.2rem;
+            border-radius: var(--radius-btn);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
+            box-shadow: 0 8px 18px -5px #1e103f;
+            width: fit-content;
+            min-width: 180px;        /* ensures good tap area */
+            text-align: center;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn:active {
+            transform: scale(0.96);
+            background: var(--primary);
+            border-color: var(--primary-light);
+        }
+
+        .btn-primary {
+            background: var(--gradient-brand);
+            border: none;
+            box-shadow: 0 12px 28px -8px #7c4dff;
+        }
+
+        .btn-primary:active {
+            background: #b184ff;
+            transform: scale(0.96);
+        }
+
+        /* ----- HERO (mobile friendly stack) ----- */
+        .hero {
+            padding: 3.5rem 0 3rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.3rem, 5vw, 2rem);
+            background: linear-gradient(145deg, #ece4ff, #cbb2ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 0.5rem 0 1rem;
+            font-weight: 500;
+        }
+
+        .hero .btn {
+            font-size: 1.2rem;
+            padding: 1rem 2.2rem;
+            margin-top: 1.2rem;
+            min-width: 200px;
+        }
+
+        /* ----- PRICING CARDS (mobile optimized grid) ----- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;           /* single column on mobile */
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 500px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 cols on small tablets */
+            }
+        }
+
+        @media (min-width: 900px) {
+            .card-grid {
+                grid-template-columns: repeat(4, 1fr); /* 4 cols on desktop */
+            }
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-card);
+            padding: 1.8rem 1.5rem;
+            transition: var(--transition);
+            border: 1px solid #2e2e4a;
+            box-shadow: var(--shadow-card);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .pricing-card:active {
+            transform: scale(0.98);          /* subtle press on mobile */
+            border-color: var(--primary);
+        }
+
+        /* retain hover only for devices that support it */
+        @media (hover: hover) {
+            .pricing-card:hover {
+                transform: translateY(-8px);
+                border-color: var(--primary);
+                box-shadow: 0 30px 40px -15px #000, 0 0 0 2px #7c4dff66;
+            }
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(145deg, #ffffff, #e0cdff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.2rem;
+        }
+
+        .price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: linear-gradient(145deg, #f5f0ff, #d4b5ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin: 0.8rem 0 0.8rem;
+        }
+
+        .price small {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-dim);
+        }
+
+        .features {
+            list-style: none;
+            margin: 0.8rem 0 1.8rem;
+            flex: 1;
+        }
+
+        .features li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #30304a;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 0.98rem;
+            color: var(--text-soft);
+        }
+
+        .features li::before {
+            content: "✦";
+            color: var(--primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .btn-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--primary);
+            border-radius: 3rem;
+            padding: 1rem 0.5rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            transition: var(--transition);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            margin-top: 0.5rem;
+            display: block;
+            width: 100%;
+            font-size: 1.1rem;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-card:active {
+            background: var(--primary);
+            color: #0a0a0f;
+            transform: scale(0.96);
+        }
+
+        /* ----- SAMPLE CARDS (mobile friendly grid) ----- */
+        .sample-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        @media (min-width: 500px) {
+            .sample-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .sample-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .sample-card {
+            background: rgba(22, 22, 35, 0.9);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 2rem;
+            padding: 1.8rem 1.5rem;
+            transition: var(--transition);
+            box-shadow: 0 18px 28px -10px #000000;
+        }
+
+        .sample-card:active {
+            background: #26263b;
+            transform: scale(0.98);
+        }
+
+        @media (hover: hover) {
+            .sample-card:hover {
+                background: #24243a;
+                border-color: var(--primary-light);
+                transform: translateY(-6px);
+            }
+        }
+
+        .sample-card h3 {
+            font-size: 1.9rem;
+            font-weight: 700;
+            background: linear-gradient(145deg, #ffffff, #d1b5ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.6rem;
+        }
+
+        .sample-card p {
+            color: #bfbfe0;
+            margin-bottom: 2rem;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .drive-btn {
+            background: transparent;
+            border: 1.5px solid var(--accent-pink);
+            border-radius: 3rem;
+            padding: 1rem 0.8rem;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            display: block;
+            transition: var(--transition);
+            width: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .drive-btn:active {
+            background: var(--accent-pink);
+            color: #0a0a0f;
+            transform: scale(0.96);
+        }
+
+        /* ----- CONTACT SECTION (mobile first spacing) ----- */
+        .contact-section {
+            background: radial-gradient(circle at 30% 20%, #2e235a, #0c0c18 90%);
+            border-radius: 3rem;
+            padding: 3rem 1.8rem;
+            text-align: center;
+            margin: 4rem 0 2rem;
+            border: 1px solid #7c4dff55;
+            box-shadow: 0 25px 40px -15px #000;
+        }
+
+        @media (min-width: 600px) {
+            .contact-section {
+                border-radius: 5rem;
+                padding: 4rem 2.5rem;
+            }
+        }
+
+        .contact-section h2 {
+            border-left: none;
+            font-size: clamp(2rem, 7vw, 3.5rem);
+            background: linear-gradient(145deg, #ffffff, #f0d0ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .whatsapp-big-btn {
+            background: #25D366;
+            border: none;
+            border-radius: 60px;
+            padding: 1.2rem 2.2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0b0c10;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 1.8rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 12px 28px #25D366b3;
+            width: 100%;
+            max-width: 450px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .whatsapp-big-btn:active {
+            background: #34eb83;
+            transform: scale(0.96);
+            box-shadow: 0 12px 28px #25D366;
+        }
+
+        @media (min-width: 480px) {
+            .whatsapp-big-btn {
+                font-size: 1.8rem;
+                padding: 1.4rem 2.8rem;
+            }
+        }
+
+        .brand-note {
+            display: inline-block;
+            background: #1c1c30;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #bfbfec;
+            margin-top: 1.8rem;
+            border: 1px solid #3a3a60;
+        }
+
+        /* ----- FOOTER (mobile text wrap) ----- */
+        footer {
+            text-align: center;
+            padding: 2.5rem 0 1.2rem;
+            color: #7a7aa6;
+            font-size: 0.9rem;
+            word-break: break-word;
+        }
+
+        /* ----- helper to make all buttons touch friendly ----- */
+        .btn, .btn-card, .drive-btn, .whatsapp-big-btn {
+            cursor: pointer;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        /* hide overflow for animations */
+        body {
+            overflow-x: hidden;
+        }
+
+        /* small screens: adjust font features */
+        @media (max-width: 380px) {
+            .price {
+                font-size: 1.9rem;
+            }
+            .card-title {
+                font-size: 1.8rem;
+            }
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- HERO section — fully centered, touch ready -->
+    <section class="hero" id="home">
+        <h1>X TECH</h1>
+        <div class="hero-tagline">✦ faceless · flawless · viral ✦</div>
+        <div style="font-size: 1.2rem; color: #c5b3ff; max-width: 500px; margin: 0 auto;">High Quality Videos Ready To Upload</div>
+        <a href="#pricing" class="btn btn-primary">✨ VIEW PRICING ✨</a>
+    </section>
+
+    <!-- PRICING section — cards stack beautifully on mobile -->
+    <section id="pricing">
+        <h2>⚡ choose your plan</h2>
+        <div class="card-grid">
+            <!-- Basic card -->
+            <div class="pricing-card">
+                <div class="card-title">Basic</div>
+                <div class="price">₹300 <small>/ video</small></div>
+                <ul class="features">
+                    <li>4-6 minute video</li>
+                    <li>AI script & voiceover</li>
+                    <li>Basic stock footage</li>
+                    <li>Simple editing</li>
+                    <li>Delivery: 3-4 days</li>
+                </ul>
+                <a href="https://wa.me/message/6MAVQGEX3XDDO1" class="btn-card" target="_blank" rel="noopener">BUY NOW</a>
+            </div>
+            <!-- Growth card -->
+            <div class="pricing-card">
+                <div class="card-title">Growth</div>
+                <div class="price">₹500 <small>/ video</small></div>
+                <ul class="features">
+                    <li>6-8 minute video</li>
+                    <li>Structured script</li>
+                    <li>Clean AI voice</li>
+                    <li>Basic thumbnail</li>
+                    <li>Delivery: 2-3 days</li>
+                </ul>
+                <a href="https://wa.me/message/6MAVQGEX3XDDO1" class="btn-card" target="_blank" rel="noopener">BUY NOW</a>
+            </div>
+            <!-- Pro card -->
+            <div class="pricing-card">
+                <div class="card-title">Pro</div>
+                <div class="price">₹1000 <small>/ video</small></div>
+                <ul class="features">
+                    <li>Research based script</li>
+                    <li>Human-like AI voice</li>
+                    <li>Custom thumbnail</li>
+                    <li>SEO optimized</li>
+                    <li>8-10 minute video</li>
+                </ul>
+                <a href="https://wa.me/message/6MAVQGEX3XDDO1" class="btn-card" target="_blank" rel="noopener">BUY NOW</a>
+            </div>
+            <!-- Premium Documentary -->
+            <div class="pricing-card">
+                <div class="card-title">Premium Documentary</div>
+                <div class="price">₹5000 <small>/ video</small></div>
+                <ul class="features">
+                    <li>Deep research storytelling</li>
+                    <li>High quality editing</li>
+                    <li>Cinematic visuals</li>
+                    <li>10-15 minute video</li>
+                </ul>
+                <a href="https://wa.me/message/6MAVQGEX3XDDO1" class="btn-card" target="_blank" rel="noopener">BUY NOW</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SAMPLE WORK section — responsive cards with Google Drive links -->
+    <section id="samples">
+        <h2>🎬 sample library</h2>
+        <div class="sample-grid">
+            <div class="sample-card">
+                <h3>Ancient Echoes</h3>
+                <p>Lost civilizations & mystical ruins — cinematic 8min documentary</p>
+                <a href="https://drive.google.com/drive/folders/1EqIxvCRuTugA5PU7Ua_hGQdjgG7BC8Yk?usp=drive_link" class="drive-btn" target="_blank" rel="noopener">WATCH SAMPLE</a>
+            </div>
+            <div class="sample-card">
+                <h3>Neural Dawn</h3>
+                <p>AI revolution visualized with motion design & deep narrative</p>
+                <a href="https://drive.google.com/drive/folders/1jCCczK1bGcXRAUH88zO-3ExpTLRB1Kfq?usp=drive_link" class="drive-btn" target="_blank" rel="noopener">WATCH SAMPLE</a>
+            </div>
+            <div class="sample-card">
+                <h3>Cosmic Voids</h3>
+                <p>Space documentary with cinematic footage & epic original score</p>
+                <a href="https://drive.google.com/drive/folders/1QVVvO8HfoRkY4qgFZQY_4QVV6tEFLxNy?usp=drive_link" class="drive-btn" target="_blank" rel="noopener">WATCH SAMPLE</a>
+            </div>
+            <div class="sample-card">
+                <h3>Wild Trails</h3>
+                <p>Untamed nature — 4K wildlife storytelling, 9min cut</p>
+                <a href="https://drive.google.com/drive/folders/1EqIxvCRuTugA5PU7Ua_hGQdjgG7BC8Yk?usp=drive_link" class="drive-btn" target="_blank" rel="noopener">WATCH SAMPLE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT section — big thumb friendly WhatsApp button -->
+    <section class="contact-section" id="contact">
+        <h2>🚀 build your YouTube success</h2>
+        <div style="font-size: 1.2rem; color: #d3c0ff; max-width: 550px; margin: 0 auto;">Start with one message — we handle the rest.</div>
+        <a href="https://wa.me/message/6MAVQGEX3XDDO1" class="whatsapp-big-btn" target="_blank" rel="noopener">
+            📲 Contact on WhatsApp
+        </a>
+        <div class="brand-note">⚡ xtech · premium faceless content ⚡</div>
+    </section>
+
+    <footer>
+        <p>© 2025 X TECH — faceless video studio. all samples hosted on google drive.</p>
+        <p style="opacity: 0.6;">*BUY NOW / CONTACT open WhatsApp chat instantly</p>
+    </footer>
+</div>
+
+<!-- all interactions are mobile-optimized with active state scaling -->
+</body>
+</html>
