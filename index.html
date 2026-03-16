@@ -2,231 +2,339 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>XTech · Faceless YouTube Mastery (₹9)</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>XTech · faceless YouTube webinar (₹9)</title>
+    <!-- Inter font + icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* CSS VARIABLES - The Core Palette */
-        :root {
-            --bg-deep: #05050a; /* Midnight Navy */
-            --accent-cyan: #00d2ff; /* Electric Cyan */
-            --pop-coral: #ff3e6d; /* Neon Coral for CTA */
-            --glass-white: rgba(255, 255, 255, 0.05);
-            --text-main: #ffffff;
-            --text-dim: #a0a0c0;
+        *{margin:0; padding:0; box-sizing:border-box;}
+        body{
+            font-family:'Inter',sans-serif;
+            background: #05050a;  /* deep midnight blue-black (no pure black) */
+            color: #ffffff;
+            line-height:1.5;
+            overflow-x:hidden;
+        }
+        .container{
+            width:100%; max-width:1200px; margin:0 auto; padding:0 24px;
+        }
+        .section{
+            padding:70px 0;
+            border-bottom: 1px solid rgba(0,210,255,0.15); /* subtle cyan divider */
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-deep);
-            color: var(--text-main);
-            overflow-x: hidden;
-            line-height: 1.6;
+        /* ===== COLOR THEME ===== 
+           - background: #05050a (deep midnight)
+           - primary accent: #00d2ff (electric cyan) → icons, borders, badges
+           - CTA/pop color: #ff3e6d (neon coral) → only ₹9 & buy button
+           - heading gradient: white → #8892b0
+        */
+        .brand-x{
+            font-weight:800; font-size:2.4rem;
+            background: linear-gradient(135deg, #00d2ff, #3a8cff); /* cyan-electric blend */
+            -webkit-background-clip:text; background-clip:text; color:transparent;
+            letter-spacing:-0.02em;
         }
+        /* gradient heading style: white to #8892b0 */
+        .gradient-heading{
+            background: linear-gradient(145deg, #ffffff, #8892b0);
+            -webkit-background-clip:text; background-clip:text; color:transparent;
+            font-weight:700;
+        }
+        /* secondary gradient text (kept for some accents, but will use cyan/coral appropriately) */
+        .gradient-text{
+            background: linear-gradient(125deg, #ff3e6d, #ff7a5c); /* neon coral mix – but used sparingly */
+            -webkit-background-clip:text; background-clip:text; color:transparent;
+            font-weight:700;
+        }
+        .badge-soft{
+            background: rgba(0, 210, 255, 0.08); /* cyan transparent */
+            border: 1px solid #00d2ff; /* electric cyan border */
+            border-radius: 60px; padding: 8px 28px; display: inline-block;
+            color: #a0e7ff; font-weight: 600; margin-bottom: 30px;
+            box-shadow: 0 0 18px rgba(0,210,255,0.25);
+            backdrop-filter: blur(4px);
+        }
+        /* PRIMARY BUTTON – only coral for ₹9 and button, rest cyan */
+        .btn-primary{
+            background: #ff3e6d; /* solid neon coral – pure pop */
+            border: none; color: white; font-weight: 700;
+            padding: 16px 42px; border-radius: 80px; text-decoration: none; display: inline-block;
+            transition: 0.25s; box-shadow: 0 15px 25px -8px #ff3e6d;
+            font-size: 1.3rem; border: 1px solid rgba(255,255,255,0.2);
+            text-align: center; min-width: 240px;
+        }
+        .btn-primary:hover{transform: translateY(-4px) scale(1.02); background: #ff5c82; box-shadow: 0 22px 30px -10px #ff3e6d;}
+        .btn-outline{
+            background: transparent; border: 2px solid #00d2ff; /* electric cyan */
+            color: white; padding: 14px 32px; border-radius: 60px; text-decoration: none; display: inline-flex;
+            align-items: center; gap: 10px; transition: 0.2s; font-weight: 600;
+        }
+        .btn-outline i{color: #00d2ff;}
+        .btn-outline:hover{background: rgba(0, 210, 255, 0.15); border-color: #5ad4ff;}
 
-        /* AURORA BACKGROUND EFFECT */
-        .aurora-container {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1; overflow: hidden; pointer-events: none;
-        }
-        .glow-1 {
-            position: absolute; top: -10%; left: -10%; width: 50%; height: 50%;
-            background: radial-gradient(circle, rgba(0, 210, 255, 0.08) 0%, transparent 70%);
-        }
-        .glow-2 {
-            position: absolute; bottom: -10%; right: -10%; width: 50%; height: 50%;
-            background: radial-gradient(circle, rgba(255, 62, 109, 0.08) 0%, transparent 70%);
-        }
-
-        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-
-        /* TYPOGRAPHY */
-        h1, h2, h3 { font-weight: 800; letter-spacing: -1px; }
-        .gradient-text {
-            background: linear-gradient(135deg, #ffffff 40%, #8892b0);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .brand-x {
-            background: linear-gradient(135deg, var(--accent-cyan), #3a7bd5);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
-        /* COMPONENTS */
-        .badge {
-            background: rgba(0, 210, 255, 0.1);
-            border: 1px solid rgba(0, 210, 255, 0.3);
-            color: var(--accent-cyan);
-            padding: 8px 18px; border-radius: 100px;
-            font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 1px; display: inline-flex; align-items: center; gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--pop-coral), #ff6b6b);
-            color: white; padding: 20px 48px; border-radius: 16px;
-            text-decoration: none; font-weight: 800; font-size: 1.3rem;
-            display: inline-block; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 10px 30px rgba(255, 62, 109, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .btn-primary:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(255, 62, 109, 0.6);
-            filter: brightness(1.1);
-        }
-
-        .card {
-            background: var(--glass-white);
+        /* cards – glassmorphism (background blur, border subtle) */
+        .card{
+            background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 28px; padding: 40px;
-            transition: 0.4s ease;
+            border-radius: 40px;
+            padding: 32px 28px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px -15px #000;
+            transition: 0.25s;
+            height: 100%;
+            color: #f0f3fc;
         }
-        .card:hover {
-            border-color: var(--accent-cyan);
-            background: rgba(255, 255, 255, 0.08);
-            transform: translateY(-10px);
+        .card:hover{
+            border-color: #00d2ff; /* electric cyan on hover */
+            background: rgba(20, 30, 50, 0.5);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 50px -18px #00d2ff;
         }
-
-        /* HERO SECTION */
-        .hero { padding: 120px 0 80px; text-align: center; }
-        .hero h1 { font-size: clamp(2.8rem, 9vw, 4.5rem); margin-bottom: 20px; }
-        .hero p { font-size: 1.25rem; color: var(--text-dim); max-width: 700px; margin: 0 auto 40px; }
-
-        /* OFFER BOX */
-        .offer-box {
-            background: rgba(255, 62, 109, 0.03);
-            border: 2px dashed var(--pop-coral);
-            border-radius: 30px; padding: 40px; margin: 40px 0;
-            position: relative; overflow: hidden;
+        .icon-lg{
+            font-size: 2.8rem;
+            color: #00d2ff; /* solid cyan icon – primary accent */
+            margin-bottom: 18px;
         }
-        .price-tag {
-            font-size: 4rem; font-weight: 900; color: var(--pop-coral);
-            text-shadow: 0 0 20px rgba(255, 62, 109, 0.3);
-            display: block; margin-bottom: 10px;
+        .electric-line{
+            height: 4px; width: 70px; background: #00d2ff; border-radius: 4px; margin: 20px 0 25px;
+            box-shadow: 0 0 12px #00d2ff;
         }
 
-        /* GRID */
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
-        .icon-feat { font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 20px; display: block; }
+        /* grids */
+        .grid-2, .grid-3{display: grid; gap: 30px;}
+        .grid-2{grid-template-columns: repeat(2,1fr);} .grid-3{grid-template-columns: repeat(3,1fr);}
+        @media (max-width:700px){.grid-2, .grid-3{grid-template-columns: 1fr;}}
 
-        /* STEPS SECTION */
-        .steps { padding: 80px 0; background: rgba(255,255,255,0.02); }
-        .support-links { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 30px; }
-        .s-btn {
-            background: var(--glass-white); border: 1px solid var(--accent-cyan);
-            padding: 15px 30px; border-radius: 50px; text-decoration: none;
-            color: white; font-weight: 600; display: flex; align-items: center; gap: 10px; transition: 0.3s;
+        h2{
+            font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            background: linear-gradient(145deg, #ffffff, #8892b0);
+            -webkit-background-clip:text; background-clip:text; color:transparent;
         }
-        .s-btn:hover { background: rgba(0, 210, 255, 0.1); transform: scale(1.05); }
+        h3{font-size: 1.7rem; margin-bottom: 12px; color: #fff;}
+        p, li{color: #b0b8d0;} /* soft lavender */
+        .text-muted{color: #8e94b0;}
 
-        /* ANIMATIONS */
-        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        /* HERO */
+        .hero{
+            padding: 110px 0 70px;
+            background: #05050a;
+            color: white;
+        }
+        .hero h1{font-size: clamp(2.8rem,11vw,4.8rem); font-weight: 800; line-height: 1.1;}
 
-        /* MOBILE OPTIMIZATION */
-        @media (max-width: 850px) {
-            .grid-3 { grid-template-columns: 1fr; }
-            .hero { padding: 80px 0 50px; }
-            .price-tag { font-size: 3rem; }
-            .btn-primary { width: 100%; text-align: center; }
+        /* "next session soon" — cyan borders, coral only used for ₹9 */
+        .soon-container{
+            background: rgba(10, 15, 25, 0.7); backdrop-filter: blur(8px);
+            border-radius: 90px; padding: 30px 40px;
+            border: 2px solid #00d2ff; /* electric cyan */
+            display: flex; flex-wrap: wrap;
+            align-items: center; justify-content: center; gap: 40px 70px;
+            margin: 40px 0 30px; box-shadow: 0 0 35px rgba(0,210,255,0.3);
+        }
+        .soon-message{
+            font-size: 3.8rem; font-weight: 800;
+            background: linear-gradient(145deg, #ffffff, #8892b0);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .soon-label{
+            font-size: 2rem; font-weight: 600; color: #c0d0ff;
+            display: flex; align-items: center; gap: 12px;
+        }
+        .soon-label i{color: #00d2ff; font-size: 2.6rem;} /* cyan icon */
+        .soon-tag{
+            background: rgba(0, 210, 255, 0.05); border-radius: 60px; padding: 15px 30px;
+            border: 1px solid #00d2ff; font-size: 1.8rem; font-weight: 700;
+            color: white; display: inline-flex; gap: 20px; box-shadow: 0 0 25px rgba(0,210,255,0.5);
+        }
+        .soon-tag span{background: linear-gradient(145deg,#ffffff,#8892b0); -webkit-background-clip:text; background-clip:text; color:transparent;}
+
+        /* support blocks – cyan borders, coral used only for ₹9 */
+        .support-flex{
+            display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 40px 0;
+        }
+        .support-block{
+            background: rgba(255,255,255,0.03); backdrop-filter: blur(8px);
+            border-radius: 60px; padding: 18px 38px;
+            border: 2px solid #00d2ff; display: flex; align-items: center; gap: 20px;
+            transition: 0.2s; box-shadow: 0 10px 15px -5px #00000080;
+        }
+        .support-block i{font-size: 2.4rem; color: #00d2ff;} /* cyan icons */
+        .support-block a{color: #fff; text-decoration: none; font-weight: 600; font-size: 1.2rem;}
+        .support-block:hover{background: rgba(0,210,255,0.15); border-color: #ff3e6d; transform: scale(1.02);} /* coral hover */
+
+        /* footer */
+        .footer-links a{
+            color: #8e94b0; text-decoration: none; margin: 0 15px;
+            border-bottom: 2px solid transparent; padding-bottom: 3px;
+        }
+        .footer-links a:hover{color: #00d2ff; border-bottom-color: #00d2ff;}
+
+        /* appear animation */
+        .fade-up{opacity:0; transform:translateY(30px); transition:0.7s cubic-bezier(0.2,0.9,0.3,1);}
+        .fade-up.appear{opacity:1; transform:translateY(0);}
+        .scale-in{opacity:0; transform:scale(0.94); transition:0.6s ease;}
+        .scale-in.appear{opacity:1; transform:scale(1);}
+
+        @media (max-width:550px){
+            .soon-container{flex-direction: column; gap:20px; padding:25px;}
+            .soon-message{font-size: 2.8rem;}
+            .btn-primary{min-width:auto; width:100%;}
+            .btn-outline{width:100%; justify-content:center;}
+        }
+        ul{list-style: none;}
+        ul li{margin-bottom: 20px; font-size: 1.2rem; color: #b0b8d0;}
+        ul i{color: #00d2ff; margin-right: 14px;} /* cyan bullet */
+        strong{color: #ffffff;}
+
+        /* Coral only for ₹9 and buy button – we'll highlight */
+        .coral-highlight{
+            color: #ff3e6d;
+            font-weight: 800;
+            font-size: inherit;
+        }
+        .btn-primary .coral-highlight{
+            color: white; /* override inside button, button itself is coral */
+        }
+        .price-coral{
+            color: #ff3e6d;
+            font-weight: 800;
+            background: transparent;
         }
     </style>
 </head>
 <body>
 
-    <div class="aurora-container">
-        <div class="glow-1"></div>
-        <div class="glow-2"></div>
-    </div>
-
-    <section class="hero container">
-        <div class="badge reveal"><i class="fa-solid fa-bolt"></i> Live 90-Min Training</div>
-        <h1 class="reveal"><span class="brand-x">XTech</span> <span class="gradient-text">Faceless OS</span></h1>
-        <p class="reveal">Stop showing your face. Start building AI-automated YouTube channels that scale while you sleep.</p>
+<!-- XTECH HERO – midnight blue-black, cyan accents, coral only on ₹9 and button -->
+<section class="hero">
+    <div class="container">
+        <div class="badge-soft fade-up appear"><i class="fa-regular fa-clock" style="color:#00d2ff;"></i> XTECH · LIVE 90 min · <span class="price-coral">₹9 only</span></div>
+        <h1 class="fade-up appear"><span class="brand-x">XTech</span> <span class="gradient-heading">faceless OS</span></h1>
+        <p class="fade-up appear" style="font-size:1.5rem; max-width:650px; color:#b0b8d0;">Build AI-run YouTube channels without showing your face — 90min live training.</p>
         
-        <div class="offer-box reveal">
-            <span style="text-transform: uppercase; font-weight: 700; color: var(--text-dim); letter-spacing: 2px;">One-Time Entry</span>
-            <span class="price-tag">₹9</span>
-            <p style="color: #fff; font-weight: 600;">(First 50 seats only. Next batch starts soon!)</p>
+        <!-- "next session soon" box – cyan border, heading white/gray gradient -->
+        <div class="soon-container fade-up appear">
+            <div class="soon-message">⏳ next session soon</div>
+            <div class="soon-label"><i class="fa-regular fa-bell"></i> <span>announcement incoming</span></div>
         </div>
 
-        <div class="reveal">
-            <a href="https://zerotize.in/pay/r3fcvRsl" class="btn-primary">Reserve My Seat Now <i class="fa-solid fa-arrow-right"></i></a>
-            <p style="margin-top: 20px; color: var(--text-dim); font-size: 0.9rem;">
-                <i class="fa-solid fa-circle-check" style="color: var(--accent-cyan);"></i> Zoom Link & Community Access Included
-            </p>
+        <!-- two CTAs – primary coral (only button), outline cyan -->
+        <div style="display:flex; flex-wrap:wrap; gap:16px; margin:30px 0 20px;">
+            <a href="https://zerotize.in/pay/r3fcvRsl" class="btn-primary" target="_blank"><i class="fa-regular fa-circle-check"></i> Book <span class="coral-highlight">₹9</span> seat →</a>
+            <a href="#paymentSteps" class="btn-outline"><i class="fa-regular fa-credit-card"></i> other payment</a>
         </div>
-    </section>
+        <p class="text-muted"><i class="fa-regular fa-circle-check" style="color:#00d2ff;"></i> Zoom link · activation guaranteed</p>
+    </div>
+</section>
 
-    <section class="container" style="padding-bottom: 80px;">
-        <div class="grid-3">
-            <div class="card reveal">
-                <i class="fa-solid fa-eye-slash icon-feat"></i>
-                <h3>Zero Face Needed</h3>
-                <p style="color: var(--text-dim); margin-top: 10px;">We show you how to use AI avatars and motion graphics so you never have to be on camera.</p>
+<!-- 90‑min XTech blueprint (cards) with cyan underline -->
+<section class="container section">
+    <h2 class="">⸻ 90‑min XTech blueprint ⸻</h2> <!-- already uses gradient-heading via h2 rule -->
+    <div class="electric-line"></div> <!-- cyan accent -->
+    <div class="grid-3">
+        <div class="card scale-in"><i class="fa-regular fa-eye-slash icon-lg"></i><h3>Zoom links · no editing</h3><p>Direct zoom training — zero face, zero editing needed.</p></div>
+        <div class="card scale-in"><i class="fa-solid fa-microchip icon-lg"></i><h3>AI toolchain</h3><p>ChatGPT, DreamLabs, Runway — no editing.</p></div>
+        <div class="card scale-in"><i class="fa-solid fa-chart-simple icon-lg"></i><h3>Scale system</h3><p>Batch 30 videos/week, multi‑channel growth.</p></div>
+    </div>
+</section>
+
+<!-- Face? not needed + bullet points with cyan bullets -->
+<section class="container section">
+    <div class="grid-2">
+        <div class="fade-up">
+            <span class="badge-soft" style="border-color:#00d2ff;"><i class="fa-regular fa-face-frown" style="color:#00d2ff;"></i> no camera · no editing</span>
+            <h2>Face? <span class="gradient-heading">not needed.</span></h2>
+            <div class="electric-line" style="width:50px;"></div>
+            <ul>
+                <li><i class="fa-solid fa-xmark"></i> <strong>Camera shy?</strong> – never appear</li>
+                <li><i class="fa-solid fa-xmark"></i> <strong>Editing hell</strong> – AI does 90%</li>
+                <li><i class="fa-solid fa-xmark"></i> <strong>Ideas dry?</strong> – endless topic generator</li>
+            </ul>
+        </div>
+        <div class="card" style="border:2px solid #00d2ff;"> <!-- cyan accent card -->
+            <i class="fa-solid fa-bolt icon-lg"></i>
+            <h3 class="gradient-heading">All technicals</h3>
+            <p style="font-size:1.2rem;">ChatGPT, DreamLabs, Runway — no editing. The exact AI stack.</p>
+            <div style="margin-top:30px; background:rgba(0,210,255,0.08); border-radius:40px; padding:15px 20px; border-left: 6px solid #00d2ff;"><i class="fa-regular fa-message" style="color:#00d2ff;"></i> Scale system: Batch 30 videos/week</div>
+        </div>
+    </div>
+</section>
+
+<!-- X TECH company card (cyan brand) -->
+<section class="container section">
+    <div class="card" style="border:2px solid #00d2ff; text-align:center; padding:50px 30px;">
+        <i class="fa-regular fa-registered" style="font-size:3.8rem; color:#00d2ff;"></i>
+        <h2 style="margin:15px 0 5px;"><span class="brand-x">X Tech</span></h2>
+        <p style="font-size:1.3rem; max-width:700px; margin:0 auto; color:#b0b8d0;">Digital automation company — scalable YouTube channels with modern AI</p>
+        <div class="electric-line" style="margin:25px auto 0;"></div>
+    </div>
+</section>
+
+<!-- NEXT SESSION TICKET (cyan borders, coral only on ₹9 later) -->
+<section class="container section">
+    <div class="card" style="padding:50px 20px; text-align:center;">
+        <h2 class="gradient-heading" style="margin-bottom:30px;">⏳ next session ticket</h2>
+        <div class="soon-container" style="margin-top:0; flex-direction:column; gap:15px;">
+            <div class="soon-message" style="font-size:4rem;">soon</div>
+            <div class="soon-tag">
+                <span>Days</span> <i class="fa-regular fa-clock" style="color:#00d2ff;"></i> <span>Hours</span> <i class="fa-regular fa-clock" style="color:#00d2ff;"></i> <span>Mins</span> <i class="fa-regular fa-clock" style="color:#00d2ff;"></i> <span>Secs</span>
             </div>
-            <div class="card reveal">
-                <i class="fa-solid fa-robot icon-feat"></i>
-                <h3>The AI Stack</h3>
-                <p style="color: var(--text-dim); margin-top: 10px;">Complete workflow using ChatGPT, Runway Gen-2, and ElevenLabs for 10x faster production.</p>
-            </div>
-            <div class="card reveal">
-                <i class="fa-solid fa-money-bill-trend-up icon-feat"></i>
-                <h3>Monetization</h3>
-                <p style="color: var(--text-dim); margin-top: 10px;">High-CPM niche selection and affiliate secrets for channels that pay from Day 1.</p>
-            </div>
         </div>
-    </section>
+        <p style="margin-top:35px; font-size:1.2rem; color:#aab5e0;"><i class="fa-regular fa-star" style="color:#00d2ff;"></i> 📌 First 50 get secret AI prompt vault (backlash rich)</p>
+    </div>
+</section>
 
-    <section class="steps">
-        <div class="container" style="text-align: center;">
-            <h2 class="gradient-text reveal">After Successful Payment</h2>
-            <p style="color: var(--text-dim); margin-bottom: 30px;">Make sure to join our ecosystem immediately</p>
-            
-            <div class="support-links reveal">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSesf1eWwV3arhR0WneNuf-CwRYZ-ECP6WQ71CIL_LJPgYrhEg/viewform" target="_blank" class="s-btn">
-                    <i class="fab fa-google"></i> Fill Registration Form
-                </a>
-                <a href="https://wa.me/message/6MAVQGEX3XDDO1" target="_blank" class="s-btn" style="border-color: #25d366;">
-                    <i class="fab fa-whatsapp" style="color: #25d366;"></i> Join WhatsApp Support
-                </a>
-            </div>
+<!-- AFTER ₹9 PAYMENT – blocks with cyan and coral only on ₹9 -->
+<section id="paymentSteps" class="container section" style="padding:50px 0;">
+    <h2 class="">✅ after <span class="price-coral">₹9</span> payment</h2>
+    <div class="electric-line"></div>
+    <div class="support-flex">
+        <div class="support-block scale-in">
+            <i class="fab fa-google"></i>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSesf1eWwV3arhR0WneNuf-CwRYZ-ECP6WQ71CIL_LJPgYrhEg/viewform" target="_blank">Registration form (mandatory)</a>
         </div>
-    </section>
-
-    <footer class="container" style="padding: 60px 0; text-align: center; border-top: 1px solid var(--glass-white);">
-        <div class="brand-x" style="font-size: 1.8rem; margin-bottom: 10px;">XTech Digital</div>
-        <p style="color: var(--text-dim); font-size: 0.85rem;">© 2025 XTech Automation Systems. All rights reserved.</p>
-        <div style="margin-top: 20px; font-size: 0.8rem; color: #444;">
-            <a href="#" style="color: inherit; text-decoration: none; margin: 0 10px;">Privacy</a>
-            <a href="#" style="color: inherit; text-decoration: none; margin: 0 10px;">Terms</a>
+        <div class="support-block scale-in">
+            <i class="fab fa-whatsapp"></i>
+            <a href="https://wa.me/message/6MAVQGEX3XDDO1" target="_blank">WhatsApp support group</a>
         </div>
-    </footer>
+    </div>
+    <p style="text-align:center; color:#8e94b0;">After payment, fill the Google form to get Zoom link & join WhatsApp.</p>
+</section>
 
-    <script>
-        // Scroll Reveal Animation
-        const revealElements = document.querySelectorAll('.reveal');
-        const scrollHandler = () => {
-            revealElements.forEach(el => {
-                const elementTop = el.getBoundingClientRect().top;
-                if (elementTop < window.innerHeight - 50) {
-                    el.classList.add('active');
-                }
-            });
-        };
+<!-- FINAL CTA (coral button, cyan border) -->
+<section class="container" style="margin-bottom:70px;">
+    <div class="card" style="border:3px solid #00d2ff; padding:60px 30px; text-align:center;">
+        <h2 style="font-size:clamp(2.3rem,7vw,3.8rem);">reserve <span class="brand-x">X Tech</span> seat</h2>
+        <div class="electric-line" style="margin:20px auto;"></div>
+        <div style="margin:40px 0 20px;">
+            <a href="https://zerotize.in/pay/r3fcvRsl" class="btn-primary" style="font-size:2rem; padding:22px 50px;" target="_blank"><span class="price-coral" style="color:white;">₹9</span> · join live</a>
+        </div>
+        <p class="text-muted"><i class="fa-regular fa-face-smile" style="color:#00d2ff;"></i> Zoom link · activation guaranteed</p>
+    </div>
+</section>
 
-        window.addEventListener('scroll', scrollHandler);
-        window.addEventListener('load', scrollHandler); // Initial check
-    </script>
+<!-- footer -->
+<footer class="container" style="padding:30px 0 50px;">
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px;">
+        <div><span class="brand-x" style="font-size:2.4rem;">X Tech</span><span style="color:#8e94b0;"> ©2025</span></div>
+        <div class="footer-links"><a href="#">privacy</a><a href="#">terms</a><a href="#">contact</a></div>
+    </div>
+    <div style="border-top:1px solid rgba(0,210,255,0.2); margin-top:40px; padding-top:25px; text-align:center; color:#6b6d92;">Build · scale · automate — faceless YouTube systems</div>
+</footer>
+
+<!-- appear observer -->
+<script>
+    (function() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => e.isIntersecting && e.target.classList.add('appear'));
+        }, { threshold:0.2 });
+        document.querySelectorAll('.fade-up, .scale-in').forEach(el => observer.observe(el));
+        document.querySelectorAll('.hero .fade-up, .hero .scale-in').forEach(el => el.classList.add('appear'));
+    })();
+</script>
 </body>
 </html>
