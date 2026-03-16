@@ -2,594 +2,231 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>X TECH · faceless video studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>XTech · Faceless YouTube Mastery (₹9)</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        /* ----- RESET + MOBILE FIRST VARIABLES ----- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* CSS VARIABLES - The Core Palette */
         :root {
-            --bg-deep: #0a0a0f;
-            --bg-card: #14141f;
-            --bg-surface: #1c1c2a;
-            --primary: #7c4dff;
-            --primary-light: #b184ff;
-            --primary-glow: #b794ff;
-            --accent-mint: #6effe8;
-            --accent-pink: #ff7ac6;
-            --accent-gold: #ffb86b;
-            --text-light: #f2f2f7;
-            --text-dim: #b3b3cc;
-            --text-soft: #c9c9e6;
-            --border-alpha: rgba(124, 77, 255, 0.3);
-            --gradient-brand: linear-gradient(145deg, #7c4dff, #b66aff);
-            --shadow-card: 0 20px 35px -12px #000000cc;
-            --radius-card: 2rem;      /* slightly smaller for mobile, but still round */
-            --radius-btn: 3rem;
-            --transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1);
+            --bg-deep: #05050a; /* Midnight Navy */
+            --accent-cyan: #00d2ff; /* Electric Cyan */
+            --pop-coral: #ff3e6d; /* Neon Coral for CTA */
+            --glass-white: rgba(255, 255, 255, 0.05);
+            --text-main: #ffffff;
+            --text-dim: #a0a0c0;
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        
         body {
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-deep);
-            color: var(--text-light);
-            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
-            line-height: 1.5;
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* container - fluid padding for mobile */
-        .container {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1.25rem;  /* 20px on mobile, grows on desktop */
-        }
-
-        @media (min-width: 640px) {
-            .container {
-                padding: 0 2rem;
-            }
-        }
-
-        /* ----- TYPOGRAPHY (scales perfectly on mobile) ----- */
-        h1, h2, h3 {
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
-        }
-
-        h1 {
-            font-size: clamp(2.8rem, 15vw, 6rem);
-            background: linear-gradient(to right, #ffffff, #dbbaff, #a678ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            filter: drop-shadow(0 0 12px #7c4dff99);
-            animation: softGlow 3s infinite alternate;
-            margin-bottom: 0.25rem;
-        }
-
-        @keyframes softGlow {
-            0% { filter: drop-shadow(0 0 8px #7c4dffb3); }
-            100% { filter: drop-shadow(0 0 22px #b184ff); }
-        }
-
-        h2 {
-            font-size: clamp(2rem, 8vw, 3rem);
-            margin-bottom: 1.75rem;
-            background: linear-gradient(135deg, #ffffff 0%, #e1c6ff 90%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            border-left: 5px solid var(--primary);
-            padding-left: 1rem;
-            transition: transform 0.2s;
-        }
-
-        h2:active {
-            transform: translateX(5px); /* subtle touch feedback */
-        }
-
-        /* ----- BUTTONS (touch friendly, big tap targets) ----- */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            background: rgba(25, 25, 40, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1.5px solid var(--primary);
-            color: white;
-            font-weight: 600;
-            padding: 0.9rem 2.2rem;
-            border-radius: var(--radius-btn);
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 1.1rem;
-            box-shadow: 0 8px 18px -5px #1e103f;
-            width: fit-content;
-            min-width: 180px;        /* ensures good tap area */
-            text-align: center;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .btn:active {
-            transform: scale(0.96);
-            background: var(--primary);
-            border-color: var(--primary-light);
-        }
-
-        .btn-primary {
-            background: var(--gradient-brand);
-            border: none;
-            box-shadow: 0 12px 28px -8px #7c4dff;
-        }
-
-        .btn-primary:active {
-            background: #b184ff;
-            transform: scale(0.96);
-        }
-
-        /* ----- HERO (mobile friendly stack) ----- */
-        .hero {
-            padding: 3.5rem 0 3rem;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .hero-tagline {
-            font-size: clamp(1.3rem, 5vw, 2rem);
-            background: linear-gradient(145deg, #ece4ff, #cbb2ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin: 0.5rem 0 1rem;
-            font-weight: 500;
-        }
-
-        .hero .btn {
-            font-size: 1.2rem;
-            padding: 1rem 2.2rem;
-            margin-top: 1.2rem;
-            min-width: 200px;
-        }
-
-        /* ----- PRICING CARDS (mobile optimized grid) ----- */
-        .card-grid {
-            display: grid;
-            grid-template-columns: 1fr;           /* single column on mobile */
-            gap: 1.8rem;
-            margin: 2rem 0;
-        }
-
-        @media (min-width: 500px) {
-            .card-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 cols on small tablets */
-            }
-        }
-
-        @media (min-width: 900px) {
-            .card-grid {
-                grid-template-columns: repeat(4, 1fr); /* 4 cols on desktop */
-            }
-        }
-
-        .pricing-card {
-            background: var(--bg-card);
-            border-radius: var(--radius-card);
-            padding: 1.8rem 1.5rem;
-            transition: var(--transition);
-            border: 1px solid #2e2e4a;
-            box-shadow: var(--shadow-card);
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .pricing-card:active {
-            transform: scale(0.98);          /* subtle press on mobile */
-            border-color: var(--primary);
-        }
-
-        /* retain hover only for devices that support it */
-        @media (hover: hover) {
-            .pricing-card:hover {
-                transform: translateY(-8px);
-                border-color: var(--primary);
-                box-shadow: 0 30px 40px -15px #000, 0 0 0 2px #7c4dff66;
-            }
-        }
-
-        .card-title {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(145deg, #ffffff, #e0cdff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 0.2rem;
-        }
-
-        .price {
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: linear-gradient(145deg, #f5f0ff, #d4b5ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-            margin: 0.8rem 0 0.8rem;
-        }
-
-        .price small {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--text-dim);
-        }
-
-        .features {
-            list-style: none;
-            margin: 0.8rem 0 1.8rem;
-            flex: 1;
-        }
-
-        .features li {
-            padding: 0.6rem 0;
-            border-bottom: 1px dashed #30304a;
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            font-size: 0.98rem;
-            color: var(--text-soft);
-        }
-
-        .features li::before {
-            content: "✦";
-            color: var(--primary);
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .btn-card {
-            background: rgba(0, 0, 0, 0.3);
-            border: 2px solid var(--primary);
-            border-radius: 3rem;
-            padding: 1rem 0.5rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            text-align: center;
-            transition: var(--transition);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            margin-top: 0.5rem;
-            display: block;
-            width: 100%;
-            font-size: 1.1rem;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .btn-card:active {
-            background: var(--primary);
-            color: #0a0a0f;
-            transform: scale(0.96);
-        }
-
-        /* ----- SAMPLE CARDS (mobile friendly grid) ----- */
-        .sample-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.8rem;
-            margin: 2rem 0;
-        }
-
-        @media (min-width: 500px) {
-            .sample-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (min-width: 900px) {
-            .sample-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        .sample-card {
-            background: rgba(22, 22, 35, 0.9);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 2rem;
-            padding: 1.8rem 1.5rem;
-            transition: var(--transition);
-            box-shadow: 0 18px 28px -10px #000000;
-        }
-
-        .sample-card:active {
-            background: #26263b;
-            transform: scale(0.98);
-        }
-
-        @media (hover: hover) {
-            .sample-card:hover {
-                background: #24243a;
-                border-color: var(--primary-light);
-                transform: translateY(-6px);
-            }
-        }
-
-        .sample-card h3 {
-            font-size: 1.9rem;
-            font-weight: 700;
-            background: linear-gradient(145deg, #ffffff, #d1b5ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 0.6rem;
-        }
-
-        .sample-card p {
-            color: #bfbfe0;
-            margin-bottom: 2rem;
-            font-size: 0.98rem;
+            color: var(--text-main);
+            overflow-x: hidden;
             line-height: 1.6;
         }
 
-        .drive-btn {
-            background: transparent;
-            border: 1.5px solid var(--accent-pink);
-            border-radius: 3rem;
-            padding: 1rem 0.8rem;
-            text-align: center;
-            color: white;
-            font-weight: 600;
-            text-decoration: none;
-            display: block;
-            transition: var(--transition);
-            width: 100%;
-            -webkit-tap-highlight-color: transparent;
+        /* AURORA BACKGROUND EFFECT */
+        .aurora-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; overflow: hidden; pointer-events: none;
+        }
+        .glow-1 {
+            position: absolute; top: -10%; left: -10%; width: 50%; height: 50%;
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.08) 0%, transparent 70%);
+        }
+        .glow-2 {
+            position: absolute; bottom: -10%; right: -10%; width: 50%; height: 50%;
+            background: radial-gradient(circle, rgba(255, 62, 109, 0.08) 0%, transparent 70%);
         }
 
-        .drive-btn:active {
-            background: var(--accent-pink);
-            color: #0a0a0f;
-            transform: scale(0.96);
+        .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 { font-weight: 800; letter-spacing: -1px; }
+        .gradient-text {
+            background: linear-gradient(135deg, #ffffff 40%, #8892b0);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .brand-x {
+            background: linear-gradient(135deg, var(--accent-cyan), #3a7bd5);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        /* ----- CONTACT SECTION (mobile first spacing) ----- */
-        .contact-section {
-            background: radial-gradient(circle at 30% 20%, #2e235a, #0c0c18 90%);
-            border-radius: 3rem;
-            padding: 3rem 1.8rem;
-            text-align: center;
-            margin: 4rem 0 2rem;
-            border: 1px solid #7c4dff55;
-            box-shadow: 0 25px 40px -15px #000;
+        /* COMPONENTS */
+        .badge {
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            color: var(--accent-cyan);
+            padding: 8px 18px; border-radius: 100px;
+            font-size: 0.8rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; display: inline-flex; align-items: center; gap: 8px;
+            margin-bottom: 24px;
         }
 
-        @media (min-width: 600px) {
-            .contact-section {
-                border-radius: 5rem;
-                padding: 4rem 2.5rem;
-            }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--pop-coral), #ff6b6b);
+            color: white; padding: 20px 48px; border-radius: 16px;
+            text-decoration: none; font-weight: 800; font-size: 1.3rem;
+            display: inline-block; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 30px rgba(255, 62, 109, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 62, 109, 0.6);
+            filter: brightness(1.1);
         }
 
-        .contact-section h2 {
-            border-left: none;
-            font-size: clamp(2rem, 7vw, 3.5rem);
-            background: linear-gradient(145deg, #ffffff, #f0d0ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+        .card {
+            background: var(--glass-white);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px; padding: 40px;
+            transition: 0.4s ease;
+        }
+        .card:hover {
+            border-color: var(--accent-cyan);
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-10px);
         }
 
-        .whatsapp-big-btn {
-            background: #25D366;
-            border: none;
-            border-radius: 60px;
-            padding: 1.2rem 2.2rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0b0c10;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            margin-top: 1.8rem;
-            text-decoration: none;
-            transition: var(--transition);
-            box-shadow: 0 12px 28px #25D366b3;
-            width: 100%;
-            max-width: 450px;
-            -webkit-tap-highlight-color: transparent;
+        /* HERO SECTION */
+        .hero { padding: 120px 0 80px; text-align: center; }
+        .hero h1 { font-size: clamp(2.8rem, 9vw, 4.5rem); margin-bottom: 20px; }
+        .hero p { font-size: 1.25rem; color: var(--text-dim); max-width: 700px; margin: 0 auto 40px; }
+
+        /* OFFER BOX */
+        .offer-box {
+            background: rgba(255, 62, 109, 0.03);
+            border: 2px dashed var(--pop-coral);
+            border-radius: 30px; padding: 40px; margin: 40px 0;
+            position: relative; overflow: hidden;
+        }
+        .price-tag {
+            font-size: 4rem; font-weight: 900; color: var(--pop-coral);
+            text-shadow: 0 0 20px rgba(255, 62, 109, 0.3);
+            display: block; margin-bottom: 10px;
         }
 
-        .whatsapp-big-btn:active {
-            background: #34eb83;
-            transform: scale(0.96);
-            box-shadow: 0 12px 28px #25D366;
-        }
+        /* GRID */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 60px; }
+        .icon-feat { font-size: 2.5rem; color: var(--accent-cyan); margin-bottom: 20px; display: block; }
 
-        @media (min-width: 480px) {
-            .whatsapp-big-btn {
-                font-size: 1.8rem;
-                padding: 1.4rem 2.8rem;
-            }
+        /* STEPS SECTION */
+        .steps { padding: 80px 0; background: rgba(255,255,255,0.02); }
+        .support-links { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 30px; }
+        .s-btn {
+            background: var(--glass-white); border: 1px solid var(--accent-cyan);
+            padding: 15px 30px; border-radius: 50px; text-decoration: none;
+            color: white; font-weight: 600; display: flex; align-items: center; gap: 10px; transition: 0.3s;
         }
+        .s-btn:hover { background: rgba(0, 210, 255, 0.1); transform: scale(1.05); }
 
-        .brand-note {
-            display: inline-block;
-            background: #1c1c30;
-            padding: 0.4rem 1.2rem;
-            border-radius: 40px;
-            font-size: 0.9rem;
-            color: #bfbfec;
-            margin-top: 1.8rem;
-            border: 1px solid #3a3a60;
-        }
+        /* ANIMATIONS */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* ----- FOOTER (mobile text wrap) ----- */
-        footer {
-            text-align: center;
-            padding: 2.5rem 0 1.2rem;
-            color: #7a7aa6;
-            font-size: 0.9rem;
-            word-break: break-word;
-        }
-
-        /* ----- helper to make all buttons touch friendly ----- */
-        .btn, .btn-card, .drive-btn, .whatsapp-big-btn {
-            cursor: pointer;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
-        }
-
-        /* hide overflow for animations */
-        body {
-            overflow-x: hidden;
-        }
-
-        /* small screens: adjust font features */
-        @media (max-width: 380px) {
-            .price {
-                font-size: 1.9rem;
-            }
-            .card-title {
-                font-size: 1.8rem;
-            }
-            .container {
-                padding: 0 1rem;
-            }
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 850px) {
+            .grid-3 { grid-template-columns: 1fr; }
+            .hero { padding: 80px 0 50px; }
+            .price-tag { font-size: 3rem; }
+            .btn-primary { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- HERO section — fully centered, touch ready -->
-    <section class="hero" id="home">
-        <h1>X TECH</h1>
-        <div class="hero-tagline">✦ faceless · flawless · viral ✦</div>
-        <div style="font-size: 1.2rem; color: #c5b3ff; max-width: 500px; margin: 0 auto;">High Quality Videos Ready To Upload</div>
-        <a href="#pricing" class="btn btn-primary">✨ VIEW PRICING ✨</a>
+    <div class="aurora-container">
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+    </div>
+
+    <section class="hero container">
+        <div class="badge reveal"><i class="fa-solid fa-bolt"></i> Live 90-Min Training</div>
+        <h1 class="reveal"><span class="brand-x">XTech</span> <span class="gradient-text">Faceless OS</span></h1>
+        <p class="reveal">Stop showing your face. Start building AI-automated YouTube channels that scale while you sleep.</p>
+        
+        <div class="offer-box reveal">
+            <span style="text-transform: uppercase; font-weight: 700; color: var(--text-dim); letter-spacing: 2px;">One-Time Entry</span>
+            <span class="price-tag">₹9</span>
+            <p style="color: #fff; font-weight: 600;">(First 50 seats only. Next batch starts soon!)</p>
+        </div>
+
+        <div class="reveal">
+            <a href="https://zerotize.in/pay/r3fcvRsl" class="btn-primary">Reserve My Seat Now <i class="fa-solid fa-arrow-right"></i></a>
+            <p style="margin-top: 20px; color: var(--text-dim); font-size: 0.9rem;">
+                <i class="fa-solid fa-circle-check" style="color: var(--accent-cyan);"></i> Zoom Link & Community Access Included
+            </p>
+        </div>
     </section>
 
-    <!-- PRICING section — cards stack beautifully on mobile -->
-    <section id="pricing">
-        <h2>⚡ choose your plan</h2>
-        <div class="card-grid">
-            <!-- Basic card -->
-            <div class="pricing-card">
-                <div class="card-title">Basic</div>
-                <div class="price">₹300 <small>/ video</small></div>
-                <ul class="features">
-                    <li>4-6 minute video</li>
-                    <li>AI script & voiceover</li>
-                    <li>Basic stock footage</li>
-                    <li>Simple editing</li>
-                    <li>Delivery: 3-4 days</li>
-                </ul>
-                <a href="https://wa.me/message/6MAVQGEX3XDDO1" class="btn-card" target="_blank" rel="noopener">BUY NOW</a>
+    <section class="container" style="padding-bottom: 80px;">
+        <div class="grid-3">
+            <div class="card reveal">
+                <i class="fa-solid fa-eye-slash icon-feat"></i>
+                <h3>Zero Face Needed</h3>
+                <p style="color: var(--text-dim); margin-top: 10px;">We show you how to use AI avatars and motion graphics so you never have to be on camera.</p>
             </div>
-            <!-- Growth card -->
-            <div class="pricing-card">
-                <div class="card-title">Growth</div>
-                <div class="price">₹500 <small>/ video</small></div>
-                <ul class="features">
-                    <li>6-8 minute video</li>
-                    <li>Structured script</li>
-                    <li>Clean AI voice</li>
-                    <li>Basic thumbnail</li>
-                    <li>Delivery: 2-3 days</li>
-                </ul>
-                <a href="https://wa.me/message/6MAVQGEX3XDDO1" class="btn-card" target="_blank" rel="noopener">BUY NOW</a>
+            <div class="card reveal">
+                <i class="fa-solid fa-robot icon-feat"></i>
+                <h3>The AI Stack</h3>
+                <p style="color: var(--text-dim); margin-top: 10px;">Complete workflow using ChatGPT, Runway Gen-2, and ElevenLabs for 10x faster production.</p>
             </div>
-            <!-- Pro card -->
-            <div class="pricing-card">
-                <div class="card-title">Pro</div>
-                <div class="price">₹1000 <small>/ video</small></div>
-                <ul class="features">
-                    <li>Research based script</li>
-                    <li>Human-like AI voice</li>
-                    <li>Custom thumbnail</li>
-                    <li>SEO optimized</li>
-                    <li>8-10 minute video</li>
-                </ul>
-                <a href="https://wa.me/message/6MAVQGEX3XDDO1" class="btn-card" target="_blank" rel="noopener">BUY NOW</a>
-            </div>
-            <!-- Premium Documentary -->
-            <div class="pricing-card">
-                <div class="card-title">Premium Documentary</div>
-                <div class="price">₹5000 <small>/ video</small></div>
-                <ul class="features">
-                    <li>Deep research storytelling</li>
-                    <li>High quality editing</li>
-                    <li>Cinematic visuals</li>
-                    <li>10-15 minute video</li>
-                </ul>
-                <a href="https://wa.me/message/6MAVQGEX3XDDO1" class="btn-card" target="_blank" rel="noopener">BUY NOW</a>
+            <div class="card reveal">
+                <i class="fa-solid fa-money-bill-trend-up icon-feat"></i>
+                <h3>Monetization</h3>
+                <p style="color: var(--text-dim); margin-top: 10px;">High-CPM niche selection and affiliate secrets for channels that pay from Day 1.</p>
             </div>
         </div>
     </section>
 
-    <!-- SAMPLE WORK section — responsive cards with Google Drive links -->
-    <section id="samples">
-        <h2>🎬 sample library</h2>
-        <div class="sample-grid">
-            <div class="sample-card">
-                <h3>Ancient Echoes</h3>
-                <p>Lost civilizations & mystical ruins — cinematic 8min documentary</p>
-                <a href="https://drive.google.com/drive/folders/1EqIxvCRuTugA5PU7Ua_hGQdjgG7BC8Yk?usp=drive_link" class="drive-btn" target="_blank" rel="noopener">WATCH SAMPLE</a>
-            </div>
-            <div class="sample-card">
-                <h3>Neural Dawn</h3>
-                <p>AI revolution visualized with motion design & deep narrative</p>
-                <a href="https://drive.google.com/drive/folders/1jCCczK1bGcXRAUH88zO-3ExpTLRB1Kfq?usp=drive_link" class="drive-btn" target="_blank" rel="noopener">WATCH SAMPLE</a>
-            </div>
-            <div class="sample-card">
-                <h3>Cosmic Voids</h3>
-                <p>Space documentary with cinematic footage & epic original score</p>
-                <a href="https://drive.google.com/drive/folders/1QVVvO8HfoRkY4qgFZQY_4QVV6tEFLxNy?usp=drive_link" class="drive-btn" target="_blank" rel="noopener">WATCH SAMPLE</a>
-            </div>
-            <div class="sample-card">
-                <h3>Wild Trails</h3>
-                <p>Untamed nature — 4K wildlife storytelling, 9min cut</p>
-                <a href="https://drive.google.com/drive/folders/1EqIxvCRuTugA5PU7Ua_hGQdjgG7BC8Yk?usp=drive_link" class="drive-btn" target="_blank" rel="noopener">WATCH SAMPLE</a>
+    <section class="steps">
+        <div class="container" style="text-align: center;">
+            <h2 class="gradient-text reveal">After Successful Payment</h2>
+            <p style="color: var(--text-dim); margin-bottom: 30px;">Make sure to join our ecosystem immediately</p>
+            
+            <div class="support-links reveal">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSesf1eWwV3arhR0WneNuf-CwRYZ-ECP6WQ71CIL_LJPgYrhEg/viewform" target="_blank" class="s-btn">
+                    <i class="fab fa-google"></i> Fill Registration Form
+                </a>
+                <a href="https://wa.me/message/6MAVQGEX3XDDO1" target="_blank" class="s-btn" style="border-color: #25d366;">
+                    <i class="fab fa-whatsapp" style="color: #25d366;"></i> Join WhatsApp Support
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT section — big thumb friendly WhatsApp button -->
-    <section class="contact-section" id="contact">
-        <h2>🚀 build your YouTube success</h2>
-        <div style="font-size: 1.2rem; color: #d3c0ff; max-width: 550px; margin: 0 auto;">Start with one message — we handle the rest.</div>
-        <a href="https://wa.me/message/6MAVQGEX3XDDO1" class="whatsapp-big-btn" target="_blank" rel="noopener">
-            📲 Contact on WhatsApp
-        </a>
-        <div class="brand-note">⚡ xtech · premium faceless content ⚡</div>
-    </section>
-
-    <footer>
-        <p>© 2025 X TECH — faceless video studio. all samples hosted on google drive.</p>
-        <p style="opacity: 0.6;">*BUY NOW / CONTACT open WhatsApp chat instantly</p>
+    <footer class="container" style="padding: 60px 0; text-align: center; border-top: 1px solid var(--glass-white);">
+        <div class="brand-x" style="font-size: 1.8rem; margin-bottom: 10px;">XTech Digital</div>
+        <p style="color: var(--text-dim); font-size: 0.85rem;">© 2025 XTech Automation Systems. All rights reserved.</p>
+        <div style="margin-top: 20px; font-size: 0.8rem; color: #444;">
+            <a href="#" style="color: inherit; text-decoration: none; margin: 0 10px;">Privacy</a>
+            <a href="#" style="color: inherit; text-decoration: none; margin: 0 10px;">Terms</a>
+        </div>
     </footer>
-</div>
 
-<!-- all interactions are mobile-optimized with active state scaling -->
+    <script>
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const scrollHandler = () => {
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < window.innerHeight - 50) {
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', scrollHandler);
+        window.addEventListener('load', scrollHandler); // Initial check
+    </script>
 </body>
 </html>
