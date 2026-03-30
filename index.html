@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-    <title>XTech · faceless YouTube automation | ₹9 Live Webinar</title>
-    <meta name="description" content="Build AI-run YouTube channels without showing your face. 90min live training with AI toolchain. Join for just ₹9!">
+    <title>XTech · faceless YouTube automation | Live Webinar</title>
+    <meta name="description" content="Build AI-run YouTube channels without showing your face. 90min live training with AI toolchain.">
     <meta name="keywords" content="faceless youtube, youtube automation, AI youtube channel, youtube webinar">
     
     <!-- Fonts & Icons -->
@@ -168,6 +168,32 @@
             background: rgba(0, 210, 255, 0.15);
             border-color: #5ad4ff;
             transform: translateY(-2px);
+        }
+
+        /* Disabled/Info button styling for registration */
+        .btn-info {
+            background: rgba(0, 210, 255, 0.2);
+            border: 2px solid #00d2ff;
+            color: white;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 80px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            text-align: center;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-info:hover {
+            background: rgba(0, 210, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
         }
 
         /* Glassmorphism Cards */
@@ -381,7 +407,7 @@
             transform: scale(1);
         }
 
-        /* Coral Highlight - ONLY for ₹9 */
+        /* Coral Highlight - accent color */
         .coral-highlight, .price-coral {
             color: #ff3e6d;
             font-weight: 800;
@@ -415,7 +441,7 @@
                 padding: 14px 20px;
             }
             
-            .btn-primary, .btn-outline {
+            .btn-primary, .btn-outline, .btn-info {
                 width: 100%;
                 padding: 14px 24px;
             }
@@ -472,8 +498,18 @@
         }
 
         /* Hover Effects */
-        .card, .btn-primary, .btn-outline, .support-block {
+        .card, .btn-primary, .btn-outline, .support-block, .btn-info {
             cursor: pointer;
+        }
+
+        /* Registration note styling */
+        .reg-note {
+            background: rgba(255, 62, 109, 0.1);
+            border-left: 4px solid #ff3e6d;
+            padding: 16px 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -483,7 +519,7 @@
 <section class="hero">
     <div class="container">
         <div class="badge-soft fade-up appear">
-            <i class="fa-regular fa-clock"></i> XTECH · LIVE 90 min · <span class="price-coral">₹9 only</span>
+            <i class="fa-regular fa-clock"></i> XTECH · LIVE 90 min · <span class="price-coral">Free Registration</span>
         </div>
         <h1 class="fade-up appear">
             <span class="brand-x">XTech</span> 
@@ -502,23 +538,23 @@
             </div>
         </div>
 
-        <!-- CTA Buttons -->
+        <!-- CTA Buttons - Payment link removed, replaced with registration info -->
         <div class="btn-group fade-up appear">
-            <a href="https://zerotize.in/pay/r3fcvRsl" class="btn-primary" target="_blank" rel="noopener noreferrer">
-                <i class="fa-regular fa-circle-check"></i> Book <span class="coral-highlight">₹9</span> seat →
+            <a href="#registrationForm" class="btn-primary" style="background: #00d2ff; box-shadow: 0 10px 25px -5px rgba(0, 210, 255, 0.5);">
+                <i class="fa-regular fa-pen-to-square"></i> Register for Free →
             </a>
-            <a href="#paymentSteps" class="btn-outline">
-                <i class="fa-regular fa-credit-card"></i> other payment
+            <a href="#webinarDetails" class="btn-outline">
+                <i class="fa-regular fa-circle-question"></i> Learn more
             </a>
         </div>
         <p class="text-muted fade-up appear">
-            <i class="fa-regular fa-circle-check" style="color: #00d2ff;"></i> Zoom link · activation guaranteed
+            <i class="fa-regular fa-circle-check" style="color: #00d2ff;"></i> Limited seats · Zoom link after registration
         </p>
     </div>
 </section>
 
 <!-- 90-min Blueprint Section -->
-<section class="container section">
+<section id="webinarDetails" class="container section">
     <h2>⸻ 90‑min XTech blueprint ⸻</h2>
     <div class="electric-line"></div>
     <div class="grid-3">
@@ -597,15 +633,18 @@
     </div>
 </section>
 
-<!-- Payment Steps Section -->
-<section id="paymentSteps" class="container section" style="padding: 45px 0;">
-    <h2>✅ after <span class="price-coral">₹9</span> payment</h2>
+<!-- Registration & Access Section - Payment steps replaced with registration focus -->
+<section id="registrationForm" class="container section" style="padding: 45px 0;">
+    <h2>✅ join the <span class="price-coral">free webinar</span></h2>
     <div class="electric-line"></div>
+    <p style="margin-bottom: 20px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
+        Get instant access to Zoom link, AI resources, and WhatsApp community. No payment needed — just register below.
+    </p>
     <div class="support-flex">
         <div class="support-block">
             <i class="fab fa-google"></i>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSesf1eWwV3arhR0WneNuf-CwRYZ-ECP6WQ71CIL_LJPgYrhEg/viewform" target="_blank" rel="noopener noreferrer">
-                Registration form (mandatory)
+                Registration form (free access)
             </a>
         </div>
         <div class="support-block">
@@ -615,23 +654,24 @@
             </a>
         </div>
     </div>
-    <p style="text-align: center; color: #8e94b0; font-size: 0.9rem;">
-        After payment, fill the Google form to get Zoom link & join WhatsApp.
-    </p>
+    <div class="reg-note" style="text-align: center;">
+        <i class="fa-regular fa-envelope" style="color: #00d2ff; margin-right: 8px;"></i>
+        After completing the Google Form, you'll receive Zoom invite & webinar materials within 24h.
+    </div>
 </section>
 
-<!-- Final CTA Section -->
+<!-- Final CTA Section - Payment link completely removed -->
 <section class="container" style="margin-bottom: 60px;">
     <div class="card" style="border: 3px solid #00d2ff; padding: 45px 25px; text-align: center;">
         <h2 style="font-size: clamp(1.6rem, 6vw, 2.8rem);">reserve <span class="brand-x">X Tech</span> seat</h2>
         <div class="electric-line" style="margin: 18px auto;"></div>
         <div style="margin: 30px 0 20px;">
-            <a href="https://zerotize.in/pay/r3fcvRsl" class="btn-primary" style="font-size: clamp(1.2rem, 5vw, 1.8rem); padding: 18px 40px;" target="_blank" rel="noopener noreferrer">
-                <span class="price-coral" style="color: white;">₹9</span> · join live
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSesf1eWwV3arhR0WneNuf-CwRYZ-ECP6WQ71CIL_LJPgYrhEg/viewform" class="btn-primary" style="font-size: clamp(1.2rem, 5vw, 1.8rem); padding: 18px 40px; background: #00d2ff; box-shadow: 0 10px 25px -5px rgba(0, 210, 255, 0.5);" target="_blank" rel="noopener noreferrer">
+                <i class="fa-regular fa-calendar-check"></i> Register free →
             </a>
         </div>
         <p class="text-muted">
-            <i class="fa-regular fa-face-smile" style="color: #00d2ff;"></i> Zoom link · activation guaranteed
+            <i class="fa-regular fa-face-smile" style="color: #00d2ff;"></i> Zoom link · activation guaranteed · limited seats
         </p>
     </div>
 </section>
@@ -650,7 +690,7 @@
         </div>
     </div>
     <div style="border-top: 1px solid rgba(0, 210, 255, 0.2); padding-top: 25px; text-align: center; color: #6b6d92; font-size: 0.85rem;">
-        Build · scale · automate — faceless YouTube systems
+        Build · scale · automate — faceless YouTube systems | Free live training
     </div>
 </footer>
 
