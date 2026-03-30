@@ -2,17 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-    <title>XTech · faceless YouTube automation | Live Webinar</title>
-    <meta name="description" content="Build AI-run YouTube channels without showing your face. 90min live training with AI toolchain.">
-    <meta name="keywords" content="faceless youtube, youtube automation, AI youtube channel, youtube webinar">
-    
-    <!-- Fonts & Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>XtechMoneyMatrix | Faceless YouTube Masterclass | Earn ₹72K+ Without Showing Face</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+    <!-- AOS for subtle scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -22,730 +17,431 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #05050a;
-            color: #ffffff;
+            background: #FFFFFF;
+            color: #111827;
             line-height: 1.5;
-            overflow-x: hidden;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a0a12;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #00d2ff;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #ff3e6d;
+            scroll-behavior: smooth;
         }
 
         .container {
-            width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 32px;
         }
 
-        .section {
-            padding: 60px 0;
-            border-bottom: 1px solid rgba(0, 210, 255, 0.1);
+        /* modern color scheme */
+        :root {
+            --primary-gold: #EAB308;
+            --primary-dark: #CA8A04;
+            --bg-soft: #FEFCE8;
+            --card-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+            --transition: all 0.25s ease;
         }
 
-        /* Typography - Heading Gradient */
-        h1, h2, .gradient-heading {
-            background: linear-gradient(145deg, #ffffff, #8892b0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-weight: 700;
+        .highlight-yellow {
+            color: var(--primary-gold);
         }
 
-        h2 {
-            font-size: clamp(1.8rem, 5vw, 2.4rem);
-            margin-bottom: 20px;
-            letter-spacing: -0.02em;
-        }
-
-        h3 {
-            font-size: clamp(1.3rem, 4vw, 1.7rem);
-            margin-bottom: 12px;
-            color: #fff;
-        }
-
-        p, li {
-            color: #b0b8d0;
-            font-size: clamp(0.95rem, 3vw, 1rem);
-        }
-
-        .text-muted {
-            color: #8e94b0;
-            font-size: 0.9rem;
-        }
-
-        /* Brand - Electric Cyan */
-        .brand-x {
-            font-weight: 800;
-            font-size: clamp(1.8rem, 6vw, 2.4rem);
-            background: linear-gradient(135deg, #00d2ff, #3a8cff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            letter-spacing: -0.02em;
-        }
-
-        /* Badge - Cyan Border */
-        .badge-soft {
-            background: rgba(0, 210, 255, 0.08);
-            border: 1px solid #00d2ff;
-            border-radius: 60px;
-            padding: 8px 20px;
-            display: inline-block;
-            color: #a0e7ff;
-            font-weight: 600;
-            margin-bottom: 25px;
-            font-size: clamp(0.8rem, 3vw, 0.9rem);
-            backdrop-filter: blur(4px);
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.2);
-        }
-
-        /* Buttons */
         .btn-primary {
-            background: #ff3e6d;
-            border: none;
+            background: #000000;
             color: white;
-            font-weight: 700;
-            padding: 14px 32px;
-            border-radius: 80px;
-            text-decoration: none;
+            font-weight: 800;
+            padding: 16px 36px;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px -5px rgba(255, 62, 109, 0.4);
-            font-size: clamp(1rem, 4vw, 1.2rem);
-            text-align: center;
-            cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            gap: 12px;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
         .btn-primary:hover {
+            background: var(--primary-gold);
+            color: #000;
             transform: translateY(-3px);
-            background: #ff5c82;
-            box-shadow: 0 15px 30px -8px #ff3e6d;
+            box-shadow: 0 15px 30px -8px rgba(234,179,8,0.4);
         }
 
-        .btn-primary:active {
-            transform: translateY(0);
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
         }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid #00d2ff;
-            color: white;
-            padding: 12px 28px;
-            border-radius: 80px;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            font-size: clamp(0.9rem, 3.5vw, 1rem);
-            cursor: pointer;
-        }
-
-        .btn-outline i {
-            color: #00d2ff;
-        }
-
-        .btn-outline:hover {
-            background: rgba(0, 210, 255, 0.15);
-            border-color: #5ad4ff;
-            transform: translateY(-2px);
-        }
-
-        /* Disabled/Info button styling for registration */
-        .btn-info {
-            background: rgba(0, 210, 255, 0.2);
-            border: 2px solid #00d2ff;
-            color: white;
+        h2 {
+            font-size: 2rem;
             font-weight: 700;
-            padding: 14px 32px;
-            border-radius: 80px;
-            text-decoration: none;
-            display: inline-flex;
+            letter-spacing: -0.01em;
+            position: relative;
+            display: inline-block;
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-gold);
+            border-radius: 4px;
+        }
+        .section-title-center:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.6rem; }
+            .container { padding: 0 20px; }
+            .btn-primary { padding: 12px 24px; font-size: 0.9rem; }
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-            font-size: clamp(1rem, 4vw, 1.2rem);
-            text-align: center;
-            cursor: pointer;
-            backdrop-filter: blur(4px);
         }
 
-        .btn-info:hover {
-            background: rgba(0, 210, 255, 0.4);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 210, 255, 0.3);
+        @media (max-width: 900px) {
+            .grid-2col { grid-template-columns: 1fr; gap: 2rem; }
         }
 
-        /* Glassmorphism Cards */
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border-radius: 32px;
-            padding: 28px 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            height: 100%;
+        /* clean video wrapper - just video, no studio UI */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.2);
+        }
+        .video-wrapper iframe {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            border: none;
         }
 
-        .card:hover {
-            border-color: #00d2ff;
-            background: rgba(30, 40, 70, 0.4);
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px -12px rgba(0, 210, 255, 0.2);
+        .countdown-box {
+            background: #111827;
+            color: var(--primary-gold);
+            padding: 6px 14px;
+            border-radius: 14px;
+            font-family: monospace;
+            font-weight: 800;
+            font-size: 1.2rem;
+            border: 1px solid var(--primary-gold);
         }
 
-        .icon-lg {
-            font-size: clamp(2rem, 6vw, 2.5rem);
-            color: #00d2ff;
-            margin-bottom: 18px;
+        .seats-badge {
+            background: var(--primary-gold);
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 800;
             display: inline-block;
         }
 
-        /* Electric Cyan Line */
-        .electric-line {
-            height: 3px;
-            width: 60px;
-            background: #00d2ff;
-            border-radius: 4px;
-            margin: 15px 0 25px;
-            box-shadow: 0 0 12px #00d2ff;
+        .floating-badge {
+            animation: softFloat 2.5s ease-in-out infinite;
         }
 
-        /* Grid Systems */
-        .grid-2, .grid-3 {
-            display: grid;
-            gap: 25px;
+        @keyframes softFloat {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-4px); }
+            100% { transform: translateY(0px); }
         }
 
-        .grid-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .grid-3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        /* Soon Container - Cyan Border */
-        .soon-container {
-            background: rgba(10, 15, 30, 0.6);
-            backdrop-filter: blur(8px);
+        /* brand pill */
+        .brand-pill {
+            background: #F3F4F6;
+            color: #000;
+            padding: 6px 18px;
             border-radius: 60px;
-            padding: 25px 30px;
-            border: 2px solid #00d2ff;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 30px 50px;
-            margin: 35px 0 25px;
-            box-shadow: 0 0 30px rgba(0, 210, 255, 0.25);
-        }
-
-        .soon-message {
-            font-size: clamp(1.8rem, 6vw, 3rem);
-            font-weight: 800;
-            background: linear-gradient(145deg, #ffffff, #8892b0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .soon-label {
-            font-size: clamp(1.2rem, 4vw, 1.6rem);
-            font-weight: 600;
-            color: #c0d0ff;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .soon-label i {
-            color: #00d2ff;
-            font-size: clamp(1.5rem, 5vw, 2rem);
-        }
-
-        .soon-tag {
-            background: rgba(0, 210, 255, 0.05);
-            border-radius: 60px;
-            padding: 12px 24px;
-            border: 1px solid #00d2ff;
-            font-size: clamp(1rem, 4vw, 1.4rem);
-            font-weight: 700;
-            color: white;
             display: inline-flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.3);
-        }
-
-        .soon-tag span {
-            background: linear-gradient(145deg, #ffffff, #8892b0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        /* Support Blocks */
-        .support-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
-            justify-content: center;
-            margin: 35px 0;
-        }
-
-        .support-block {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(8px);
-            border-radius: 60px;
-            padding: 15px 28px;
-            border: 2px solid #00d2ff;
-            display: flex;
             align-items: center;
-            gap: 15px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .support-block i {
-            font-size: clamp(1.5rem, 5vw, 2rem);
-            color: #00d2ff;
-        }
-
-        .support-block a {
-            color: #fff;
-            text-decoration: none;
+            gap: 8px;
+            font-size: 0.8rem;
             font-weight: 600;
-            font-size: clamp(0.9rem, 3.5vw, 1rem);
+            margin-bottom: 24px;
         }
 
-        .support-block:hover {
-            background: rgba(0, 210, 255, 0.15);
-            border-color: #ff3e6d;
-            transform: scale(1.02);
-        }
-
-        /* Lists */
-        ul {
-            list-style: none;
-        }
-
-        ul li {
-            margin-bottom: 16px;
-            font-size: clamp(0.95rem, 3vw, 1.05rem);
+        /* toast notification */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: #EAB308;
+            color: #000;
+            padding: 12px 20px;
+            border-radius: 60px;
             display: flex;
             align-items: center;
             gap: 12px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.15);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
         }
-
-        ul li i {
-            color: #00d2ff;
+        .toast-notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .toast-notification i {
             font-size: 1.2rem;
-            width: 24px;
         }
 
-        /* Footer */
-        .footer-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
+        .result-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid #F3F4F6;
+            transition: var(--transition);
+        }
+        .result-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-gold);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
         }
 
-        .footer-links a {
-            color: #8e94b0;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .footer-links a:hover {
-            color: #00d2ff;
-        }
-
-        /* Animations */
-        .fade-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1);
-        }
-
-        .fade-up.appear {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scale-in {
-            opacity: 0;
-            transform: scale(0.95);
-            transition: all 0.6s ease;
-        }
-
-        .scale-in.appear {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Coral Highlight - accent color */
-        .coral-highlight, .price-coral {
-            color: #ff3e6d;
-            font-weight: 800;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .section {
-                padding: 45px 0;
-            }
-            
-            .grid-2, .grid-3 {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .card {
-                padding: 24px 20px;
-            }
-            
-            .soon-container {
-                flex-direction: column;
-                gap: 20px;
-                padding: 25px 20px;
-                border-radius: 40px;
-            }
-            
-            .support-block {
-                width: 100%;
-                justify-content: center;
-                padding: 14px 20px;
-            }
-            
-            .btn-primary, .btn-outline, .btn-info {
-                width: 100%;
-                padding: 14px 24px;
-            }
-            
-            .hero {
-                padding: 60px 0 40px;
-            }
-            
-            .container {
-                padding: 0 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .badge-soft {
-                padding: 6px 16px;
-                font-size: 0.75rem;
-            }
-            
-            .soon-tag {
-                gap: 10px;
-                padding: 10px 18px;
-            }
-            
-            .support-flex {
-                gap: 12px;
-            }
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 80px 0 50px;
-            background: #05050a;
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 8vw, 3.5rem);
-            line-height: 1.2;
-            margin-bottom: 15px;
-        }
-
-        /* Button Groups */
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            margin: 25px 0 20px;
-        }
-
-        @media (max-width: 768px) {
-            .btn-group {
-                flex-direction: column;
-            }
-        }
-
-        /* Hover Effects */
-        .card, .btn-primary, .btn-outline, .support-block, .btn-info {
-            cursor: pointer;
-        }
-
-        /* Registration note styling */
-        .reg-note {
-            background: rgba(255, 62, 109, 0.1);
-            border-left: 4px solid #ff3e6d;
-            padding: 16px 20px;
+        .module-card {
+            background: #F9FAFB;
             border-radius: 20px;
-            margin-top: 20px;
-            font-size: 0.9rem;
+            padding: 1.2rem;
+            transition: var(--transition);
+            border: 1px solid #F3F4F6;
+        }
+        .module-card:hover {
+            background: #FEF9E3;
+            border-color: var(--primary-gold);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-gold);
+            transition: var(--transition);
+        }
+        .testimonial-card:hover {
+            transform: translateX(6px);
+            box-shadow: var(--card-shadow);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #E5E7EB;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
 
+<!-- Toast Notification (appears after 3 seconds) -->
+<div id="toastNotification" class="toast-notification">
+    <i class="fab fa-youtube" style="color:#FF0000;"></i>
+    <span>🔥 Priya has just registered for the masterclass!</span>
+</div>
+
 <!-- Hero Section -->
-<section class="hero">
+<section style="padding: 60px 0 50px 0;">
     <div class="container">
-        <div class="badge-soft fade-up appear">
-            <i class="fa-regular fa-clock"></i> XTECH · LIVE 90 min · <span class="price-coral">Free Registration</span>
+        <div class="grid-2col">
+            <!-- LEFT COLUMN -->
+            <div data-aos="fade-right" data-aos-duration="700">
+                <!-- Brand name pill -->
+                <div class="brand-pill">
+                    <i class="fas fa-crown" style="color: #EAB308;"></i>
+                    <span>XtechMoneyMatrix</span>
+                </div>
+
+                <h1>
+                    You Can Make <span class="highlight-yellow">₹72,000/- &</span><br>
+                    More Through YouTube<br>
+                    <span class="highlight-yellow">Without Showing Your Face</span>
+                </h1>
+
+                <p style="margin: 28px 0 20px 0; font-size: 1rem; color: #4B5563;">
+                    Even If You're a Beginner - Offer ends in 
+                    <span class="countdown-box" id="timerDisplay">05:42</span>
+                </p>
+
+                <a href="https://superprofile.bio/vp/ai-content-business-masterclass--live-training-" target="_blank" class="btn-primary" style="margin-bottom: 24px;">
+                    <i class="fas fa-check-circle"></i> YES! RESERVE MY SPOT FOR ₹47
+                </a>
+
+                <div style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+                    <span class="seats-badge floating-badge"><i class="fas fa-chair"></i> 11 Seats Left</span>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <div style="display: flex;">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid white; margin-right: -8px;">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid white; margin-right: -8px;">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid white;">
+                        </div>
+                        <div>
+                            <i class="fas fa-star" style="color:#EAB308;"></i>
+                            <span style="font-weight: 600;">4.8</span>
+                            <span style="color:#6B7280;"> (15k+ Reviews)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 28px; font-size: 0.75rem; color: #9CA3AF;">
+                    <i class="fas fa-video"></i> Live on Zoom • 3 Hours • Q&A with Sahmad • No Refund
+                </p>
+            </div>
+
+            <!-- RIGHT COLUMN - Clean Video Only (No Studio UI) -->
+            <div data-aos="fade-left" data-aos-duration="700" data-aos-delay="100">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://player.vimeo.com/video/1178561323?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0"
+                        frameborder="0"
+                        allow="autoplay; fullscreen; picture-in-picture"
+                        title="Faceless YouTube Masterclass Preview">
+                    </iframe>
+                </div>
+            </div>
         </div>
-        <h1 class="fade-up appear">
-            <span class="brand-x">XTech</span> 
-            <span class="gradient-heading">faceless OS</span>
-        </h1>
-        <p class="fade-up appear" style="font-size: clamp(1rem, 4vw, 1.3rem); max-width: 650px; color: #b0b8d0;">
-            Build AI-run YouTube channels without showing your face — 90min live training.
-        </p>
+    </div>
+</section>
+
+<!-- What You'll Learn + Results (Enhanced) -->
+<section style="padding: 70px 0; background: #F9FAFB;">
+    <div class="container">
+        <h2 class="section-title-center" style="text-align: center; display: block; text-align: center;" data-aos="fade-up">📘 What You'll Learn & The Results You'll Get</h2>
+        <p style="text-align: center; margin: 24px 0 48px; max-width: 700px; margin-left: auto; margin-right: auto;">After this masterclass, you'll walk away with a complete blueprint to build, grow, and monetize faceless YouTube channels.</p>
         
-        <!-- Special Offer Box -->
-        <div class="soon-container fade-up appear">
-            <div class="soon-message">⏳ next session soon</div>
-            <div class="soon-label">
-                <i class="fa-regular fa-bell"></i>
-                <span>announcement incoming</span>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 2rem;" data-aos="fade-up" data-aos-delay="50">
+            <div class="result-card">
+                <i class="fas fa-chart-line" style="font-size: 2rem; color: #EAB308;"></i>
+                <h3 style="margin: 16px 0 8px;">🚀 Channel Monetization</h3>
+                <p>Learn the exact steps to get 1,000 subscribers and 4,000 watch hours faster — most students hit monetization within 2-4 months.</p>
             </div>
-        </div>
-
-        <!-- CTA Buttons - Payment link removed, replaced with registration info -->
-        <div class="btn-group fade-up appear">
-            <a href="#registrationForm" class="btn-primary" style="background: #00d2ff; box-shadow: 0 10px 25px -5px rgba(0, 210, 255, 0.5);">
-                <i class="fa-regular fa-pen-to-square"></i> Register for Free →
-            </a>
-            <a href="#webinarDetails" class="btn-outline">
-                <i class="fa-regular fa-circle-question"></i> Learn more
-            </a>
-        </div>
-        <p class="text-muted fade-up appear">
-            <i class="fa-regular fa-circle-check" style="color: #00d2ff;"></i> Limited seats · Zoom link after registration
-        </p>
-    </div>
-</section>
-
-<!-- 90-min Blueprint Section -->
-<section id="webinarDetails" class="container section">
-    <h2>⸻ 90‑min XTech blueprint ⸻</h2>
-    <div class="electric-line"></div>
-    <div class="grid-3">
-        <div class="card scale-in">
-            <i class="fa-regular fa-eye-slash icon-lg"></i>
-            <h3>Zoom links · no editing</h3>
-            <p>Direct zoom training — zero face, zero editing needed.</p>
-        </div>
-        <div class="card scale-in">
-            <i class="fa-solid fa-microchip icon-lg"></i>
-            <h3>AI toolchain</h3>
-            <p>ChatGPT, DreamLabs, Runway — no editing.</p>
-        </div>
-        <div class="card scale-in">
-            <i class="fa-solid fa-chart-simple icon-lg"></i>
-            <h3>Scale system</h3>
-            <p>Batch 30 videos/week, multi‑channel growth.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Face-Free Section -->
-<section class="container section">
-    <div class="grid-2">
-        <div class="fade-up">
-            <span class="badge-soft">
-                <i class="fa-regular fa-face-frown"></i> no camera · no editing
-            </span>
-            <h2>Face? <span class="gradient-heading">not needed.</span></h2>
-            <div class="electric-line" style="width: 50px;"></div>
-            <ul>
-                <li><i class="fa-solid fa-xmark"></i> <strong>Camera shy?</strong> – never appear</li>
-                <li><i class="fa-solid fa-xmark"></i> <strong>Editing hell</strong> – AI does 90%</li>
-                <li><i class="fa-solid fa-xmark"></i> <strong>Ideas dry?</strong> – endless topic generator</li>
-            </ul>
-        </div>
-        <div class="card" style="border: 2px solid #00d2ff;">
-            <i class="fa-solid fa-bolt icon-lg"></i>
-            <h3 class="gradient-heading">All technicals</h3>
-            <p style="font-size: clamp(0.95rem, 3vw, 1.1rem);">ChatGPT, DreamLabs, Runway — no editing. The exact AI stack.</p>
-            <div style="margin-top: 25px; background: rgba(0, 210, 255, 0.08); border-radius: 30px; padding: 14px 18px; border-left: 4px solid #00d2ff;">
-                <i class="fa-regular fa-message" style="color: #00d2ff;"></i> Scale system: Batch 30 videos/week
+            <div class="result-card">
+                <i class="fas fa-dollar-sign" style="font-size: 2rem; color: #EAB308;"></i>
+                <h3 style="margin: 16px 0 8px;">💰 Consistent Monthly Income</h3>
+                <p>From $300 to $5,000+ per month using ad revenue, affiliate marketing, and digital products. No face, no camera.</p>
+            </div>
+            <div class="result-card">
+                <i class="fas fa-brain" style="font-size: 2rem; color: #EAB308;"></i>
+                <h3 style="margin: 16px 0 8px;">🤖 AI-Powered Workflow</h3>
+                <p>Stop wasting hours on scripting and editing. Use ChatGPT, Pictory, and ElevenLabs to create viral videos in 30 minutes.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Company Brand Section -->
-<section class="container section">
-    <div class="card" style="border: 2px solid #00d2ff; text-align: center; padding: 40px 25px;">
-        <i class="fa-regular fa-registered" style="font-size: clamp(2.5rem, 8vw, 3.5rem); color: #00d2ff;"></i>
-        <h2 style="margin: 15px 0 8px;"><span class="brand-x">X Tech</span></h2>
-        <p style="font-size: clamp(0.95rem, 3.5vw, 1.2rem); max-width: 700px; margin: 0 auto; color: #b0b8d0;">
-            Digital automation company — scalable YouTube channels with modern AI
-        </p>
-        <div class="electric-line" style="margin: 20px auto 0;"></div>
+<!-- Modules Section -->
+<section style="padding: 70px 0;">
+    <div class="container">
+        <h2 data-aos="fade-up">🎯 Masterclass Curriculum (3 Hours Live)</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.2rem; margin-top: 2rem;" data-aos="fade-up" data-aos-delay="100">
+            <div class="module-card"><strong>🔥 Module 1:</strong> Algorithm Myths – What Actually Works in 2025</div>
+            <div class="module-card"><strong>💎 Module 2:</strong> Faceless Channel Secrets – Earn ₹1Lakh+ Monthly</div>
+            <div class="module-card"><strong>🤖 Module 3:</strong> AI Viral Scripts – ChatGPT + Advanced Prompts</div>
+            <div class="module-card"><strong>🎨 Module 4:</strong> Thumbnail Hacks – 2x CTR Without Design Skills</div>
+            <div class="module-card"><strong>✂️ Module 5:</strong> Retention Editing – Maximize Watch Time</div>
+            <div class="module-card"><strong>⚙️ Module 6:</strong> Hidden Settings + Channel Setup for Fast Growth</div>
+        </div>
+        <div style="margin-top: 2rem; background: #FEF9E3; border-radius: 24px; padding: 1.5rem; text-align: center;">
+            <i class="fas fa-gift" style="font-size: 2rem; color: #EAB308;"></i>
+            <h3 style="margin: 10px 0;">🎁 Free Bonuses (Worth ₹23,500+)</h3>
+            <p>Niche Goldmine Guide • Viral Hooks Vault • Pro Editing Frameworks • SEO Formula • Thumbnail Playbook</p>
+        </div>
     </div>
 </section>
 
-<!-- Next Session Ticket Section -->
-<section class="container section">
-    <div class="card" style="padding: 40px 20px; text-align: center;">
-        <h2 class="gradient-heading" style="margin-bottom: 25px;">⏳ next session ticket</h2>
-        <div class="soon-container" style="margin-top: 0; flex-direction: column; gap: 15px;">
-            <div class="soon-message" style="font-size: clamp(2rem, 8vw, 3.5rem);">soon</div>
-            <div class="soon-tag">
-                <span>Days</span> <i class="fa-regular fa-clock"></i> 
-                <span>Hours</span> <i class="fa-regular fa-clock"></i> 
-                <span>Mins</span> <i class="fa-regular fa-clock"></i> 
-                <span>Secs</span>
-            </div>
+<!-- Real YouTube Earnings Proof Gallery -->
+<section style="padding: 60px 0; background: #F9FAFB;">
+    <div class="container">
+        <h2 class="section-title-center" style="text-align: center; display: block; text-align: center;" data-aos="fade-up">📸 Real YouTube Earnings Proof</h2>
+        <p style="text-align: center; margin-bottom: 40px;">Verified dashboard screenshots — actual results from students & internal channels</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 1.5rem;" data-aos="fade-up" data-aos-delay="80">
+            <div class="result-card" style="padding: 0; overflow: hidden;"><img src="https://i.ibb.co/WN2GdPP2/Screenshot-20260330-233607.png" style="width:100%;" alt="proof1"></div>
+            <div class="result-card" style="padding: 0; overflow: hidden;"><img src="https://i.ibb.co/vxZVcnXz/Screenshot-20260330-233527.png" style="width:100%;" alt="proof2"></div>
+            <div class="result-card" style="padding: 0; overflow: hidden;"><img src="https://i.ibb.co/5XDwk7hJ/Screenshot-20260330-233623.png" style="width:100%;" alt="proof3"></div>
+            <div class="result-card" style="padding: 0; overflow: hidden;"><img src="https://i.ibb.co/1JzgmpLD/Screenshot-20260330-233647.png" style="width:100%;" alt="proof4"></div>
         </div>
-        <p style="margin-top: 30px; font-size: clamp(0.9rem, 3.5vw, 1rem); color: #aab5e0;">
-            <i class="fa-regular fa-star" style="color: #00d2ff;"></i> 📌 First 50 get secret AI prompt vault (backlash rich)
-        </p>
     </div>
 </section>
 
-<!-- Registration & Access Section - Payment steps replaced with registration focus -->
-<section id="registrationForm" class="container section" style="padding: 45px 0;">
-    <h2>✅ join the <span class="price-coral">free webinar</span></h2>
-    <div class="electric-line"></div>
-    <p style="margin-bottom: 20px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto;">
-        Get instant access to Zoom link, AI resources, and WhatsApp community. No payment needed — just register below.
-    </p>
-    <div class="support-flex">
-        <div class="support-block">
-            <i class="fab fa-google"></i>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSesf1eWwV3arhR0WneNuf-CwRYZ-ECP6WQ71CIL_LJPgYrhEg/viewform" target="_blank" rel="noopener noreferrer">
-                Registration form (free access)
-            </a>
+<!-- Testimonials -->
+<section style="padding: 60px 0;">
+    <div class="container">
+        <h2 class="section-title-center" style="text-align: center; display: block; text-align: center;" data-aos="fade-up">⭐ What Our Students Say</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1.8rem; margin-top: 2.5rem;">
+            <div class="testimonial-card" data-aos="fade-up"><i class="fas fa-chart-line" style="color:#EAB308; font-size: 1.5rem;"></i> “CTR jumped 2.5X, views doubled in 3 weeks. Sahmad's method is pure gold.” – <strong>Priya S.</strong></div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="80"><i class="fas fa-dollar-sign" style="color:#EAB308; font-size: 1.5rem;"></i> “Went from $300 to $1400 in 60 days without showing my face. Game changer!” – <strong>Rahul M.</strong></div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="160"><i class="fas fa-users" style="color:#EAB308; font-size: 1.5rem;"></i> “Gained 20k subscribers in 2 months using AI scripts. Best decision ever.” – <strong>Anjali K.</strong></div>
         </div>
-        <div class="support-block">
-            <i class="fab fa-whatsapp"></i>
-            <a href="https://wa.me/message/6MAVQGEX3XDDO1" target="_blank" rel="noopener noreferrer">
-                WhatsApp support group
-            </a>
-        </div>
-    </div>
-    <div class="reg-note" style="text-align: center;">
-        <i class="fa-regular fa-envelope" style="color: #00d2ff; margin-right: 8px;"></i>
-        After completing the Google Form, you'll receive Zoom invite & webinar materials within 24h.
     </div>
 </section>
 
-<!-- Final CTA Section - Payment link completely removed -->
-<section class="container" style="margin-bottom: 60px;">
-    <div class="card" style="border: 3px solid #00d2ff; padding: 45px 25px; text-align: center;">
-        <h2 style="font-size: clamp(1.6rem, 6vw, 2.8rem);">reserve <span class="brand-x">X Tech</span> seat</h2>
-        <div class="electric-line" style="margin: 18px auto;"></div>
-        <div style="margin: 30px 0 20px;">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSesf1eWwV3arhR0WneNuf-CwRYZ-ECP6WQ71CIL_LJPgYrhEg/viewform" class="btn-primary" style="font-size: clamp(1.2rem, 5vw, 1.8rem); padding: 18px 40px; background: #00d2ff; box-shadow: 0 10px 25px -5px rgba(0, 210, 255, 0.5);" target="_blank" rel="noopener noreferrer">
-                <i class="fa-regular fa-calendar-check"></i> Register free →
-            </a>
-        </div>
-        <p class="text-muted">
-            <i class="fa-regular fa-face-smile" style="color: #00d2ff;"></i> Zoom link · activation guaranteed · limited seats
-        </p>
+<!-- Final CTA -->
+<section style="padding: 70px 0; text-align: center; background: #000; color: white;">
+    <div class="container" data-aos="fade-up">
+        <span class="seats-badge floating-badge" style="background: #EAB308; color: #000;">⚠️ Limited Seats Available — Only 11 Left</span>
+        <h2 style="margin: 24px 0 16px; color: white;">Start Your Faceless YouTube Journey Today</h2>
+        <p style="margin-bottom: 28px;">Join 500+ students who are already building automated income streams.</p>
+        <a href="https://superprofile.bio/vp/ai-content-business-masterclass--live-training-" target="_blank" class="btn-primary" style="background: #EAB308; color: #000; font-size: 1.2rem; padding: 16px 44px;">
+            <i class="fas fa-check-circle"></i> Join Masterclass for ₹47
+        </a>
+        <p style="margin-top: 28px; font-size: 0.8rem;"><i class="fas fa-clock"></i> Live on Zoom • 3 Hours • No Refund • Recordings Not Provided</p>
     </div>
 </section>
 
-<!-- Footer -->
-<footer class="container" style="padding: 25px 0 45px;">
-    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 30px;">
-        <div>
-            <span class="brand-x" style="font-size: clamp(1.5rem, 5vw, 2rem);">X Tech</span>
-            <span style="color: #8e94b0;"> ©2025</span>
-        </div>
-        <div class="footer-links">
-            <a href="#">privacy</a>
-            <a href="#">terms</a>
-            <a href="#">contact</a>
-        </div>
-    </div>
-    <div style="border-top: 1px solid rgba(0, 210, 255, 0.2); padding-top: 25px; text-align: center; color: #6b6d92; font-size: 0.85rem;">
-        Build · scale · automate — faceless YouTube systems | Free live training
+<footer>
+    <div class="container">
+        <p>© 2025 <strong>XtechMoneyMatrix</strong> — YouTube Automation Masterclass by Sahmad</p>
+        <p style="margin-top: 8px; opacity: 0.6;">📍 Results vary based on execution. Real training with proven frameworks.</p>
     </div>
 </footer>
 
-<!-- Scroll Animation Script -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    (function() {
-        // Intersection Observer for scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('appear');
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-        
-        // Observe all animated elements
-        document.querySelectorAll('.fade-up, .scale-in').forEach(el => {
-            observer.observe(el);
-        });
-        
-        // Hero elements appear immediately
-        document.querySelectorAll('.hero .fade-up, .hero .scale-in').forEach(el => {
-            el.classList.add('appear');
-        });
-        
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    e.preventDefault();
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Add touch-friendly hover effects for mobile
-        if ('ontouchstart' in window) {
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                card.addEventListener('touchstart', function() {
-                    this.style.transform = 'translateY(-3px)';
-                    setTimeout(() => {
-                        this.style.transform = '';
-                    }, 200);
-                });
-            });
+    AOS.init({ duration: 600, once: true, offset: 40, easing: 'ease-out-quad' });
+
+    // Countdown Timer (5 minutes 42 seconds)
+    function startCountdown() {
+        let durationSeconds = 5 * 60 + 42;
+        let endTime = new Date().getTime() + (durationSeconds * 1000);
+        const timerEl = document.getElementById('timerDisplay');
+        function update() {
+            let now = new Date().getTime();
+            let dist = endTime - now;
+            if (dist < 0) { timerEl.innerHTML = "00:00"; return; }
+            let mins = Math.floor(dist / (60 * 1000));
+            let secs = Math.floor((dist % (60 * 1000)) / 1000);
+            timerEl.innerHTML = `${mins.toString().padStart(2,'0')}:${secs.toString().padStart(2,'0')}`;
         }
-    })();
+        update();
+        setInterval(update, 1000);
+    }
+    startCountdown();
+
+    // Toast notification appears after 3 seconds
+    setTimeout(function() {
+        const toast = document.getElementById('toastNotification');
+        toast.classList.add('show');
+        // Auto hide after 5 seconds
+        setTimeout(function() {
+            toast.classList.remove('show');
+        }, 5000);
+    }, 3000);
 </script>
 </body>
 </html>
